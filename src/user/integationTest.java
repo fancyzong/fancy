@@ -13,9 +13,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import IOtimer.timer;
 
-public class testui {
+public class integationTest {
     public static UI test=new UI();
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         /*Detector judgement=new Detector();
     String a="ssss";
         try {
