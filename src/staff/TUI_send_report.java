@@ -13,19 +13,19 @@ public class TUI_send_report extends JFrame {
     ArrayList<String> al=new ArrayList<String>();
     JTextArea textArea=new JTextArea();
     JScrollPane jScrollPane=new JScrollPane(textArea);
-    public TUI_send_report() throws IOException {
+    public void clearReport() throws IOException {
         BufferedReader br1;
         try (FileReader fr = new FileReader("user_information.txt")) {
             br1 = new BufferedReader(fr);
             String str;
             while ((str = br1.readLine()) != null) {
-                String[] strarray=str.split(" ");
+                String[] strarray = str.split(" ");
                 al.add(strarray[1]);
                 al.add(strarray[2]);
                 //System.out.println(str);
                 if (!str.equals("")) {
                     FileWriter fw = new FileWriter(strarray[2] + ".txt");
-                    fw.write( "");
+                    fw.write("");
                     fw.flush();
                     fw.close();
                 }
@@ -36,8 +36,10 @@ public class TUI_send_report extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    }
+    public void sendreport() throws IOException {
         BufferedReader br;
+        clearReport();
         try (FileReader fr = new FileReader("history.txt")) {
             br = new BufferedReader(fr);
             String str;

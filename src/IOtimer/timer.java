@@ -73,7 +73,8 @@ public class timer {
             public void run() {
                 System.out.println("jniunuini");
                 try {
-                    new TUI_send_report();
+                    TUI_send_report tsr=new TUI_send_report();
+                    tsr.sendreport();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

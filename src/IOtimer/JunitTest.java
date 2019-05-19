@@ -10,7 +10,7 @@ import java.io.IOException;
 public class JunitTest {
     @Test
     void Testfine() throws IOException {
-        changeCondi changeCondi=new changeCondi();
+        userChangeCondi changeCondi=new userChangeCondi();
         changeCondi.Fine("111111111");
     }
     @Test

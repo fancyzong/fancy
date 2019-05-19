@@ -16,7 +16,7 @@ public class traditionTest {
         JPanel panel = new station(1,"111111111",true);
         jf.add(panel);
 
-        Detector judge = new Detector();
+        userDetector judge = new userDetector();
         System.out.println(judge.useridScan("111111111"));
     }
 }

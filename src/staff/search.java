@@ -1,43 +1,38 @@
 package staff;
 
+import IOtimer.userDetector;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-
-
-
-public class Display_user implements ActionListener {
-    JFrame jf=new JFrame();
-    JFrame search=new JFrame();
-    JButton button=new JButton("search");
-    JTextField textField=new JTextField();
-    public Display_user() throws FileNotFoundException {
-        JPanel panel = new JPanel();
-        JPanel Panel = new JPanel(new GridLayout(1,2));
-        Panel.add(textField);
-        Panel.add(button);
-        button.addActionListener(this);
-        search.add(Panel);
-        jf.setLocationRelativeTo(null);
-        jf.setTitle("User information");
-        jf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        jf.setVisible(true);
-        search.setLocationRelativeTo(null);
-        search.setTitle("User information");
-        search.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        search.setSize(200,100);
-        search.setVisible(true);
-        //setSize(200,300);
+public class search {
+    public JPanel searchDisplayUser(String userId){
         String[] columnNames={"name","ID","email","fine","condition","accumulation"};
         String[] ColumnNames={"station","user_ID","borrow","time","scooter_ID"};
-        fullfill ff=new fullfill();
-        JTable table = new JTable(ff.fullfillobject(6,"user_information.txt"), columnNames);
-        JTable Table = new JTable(ff.fullfillobject(5,"usage_information.txt"), ColumnNames);
+        ArrayList<String> al=new ArrayList<String>();
+        ArrayList<String> AL=new ArrayList<String>();
+        Object[][] obj=new Object[1][6];
+        Object[][] OBJ=new Object[1][5];
+        JPanel panel = new JPanel();
+        userDetector detector=new userDetector();
+        try {
+            al=detector.getLine(userId,"user_information.txt");
+            for (int i=0;i<al.size();i++)
+                obj[0][i]=al.get(i);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            AL=detector.getLine(userId,"usage_information.txt");
+            for (int i=0;i<AL.size();i++)
+                OBJ[0][i]=AL.get(i);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        JTable table = new JTable(obj, columnNames);
+        JTable Table = new JTable(OBJ, ColumnNames);
         table.setForeground(Color.BLACK);                   // 字体颜色
         table.setFont(new Font(null, Font.PLAIN, 14));      // 字体样式
         table.setSelectionForeground(Color.DARK_GRAY);      // 选中后字体颜色
@@ -54,10 +49,10 @@ public class Display_user implements ActionListener {
         table.setRowHeight(30);
 
         // 第一列列宽设置为40
-        table.getColumnModel().getColumn(0).setPreferredWidth(70);
+        table.getColumnModel().getColumn(0).setPreferredWidth(40);
 
         // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
-        table.setPreferredScrollableViewportSize(new Dimension(600, 200));
+        table.setPreferredScrollableViewportSize(new Dimension(400, 200));
 
         // 把 表格 放到 滚动面板 中（表头将自动添加到滚动面板顶部）
         JScrollPane scrollPane = new JScrollPane(table);
@@ -78,7 +73,7 @@ public class Display_user implements ActionListener {
         Table.setRowHeight(30);
 
         // 第一列列宽设置为40
-        Table.getColumnModel().getColumn(3).setPreferredWidth(120);
+        Table.getColumnModel().getColumn(0).setPreferredWidth(40);
 
         // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
         Table.setPreferredScrollableViewportSize(new Dimension(400, 200));
@@ -90,19 +85,6 @@ public class Display_user implements ActionListener {
         panel.setLayout(new GridLayout(2,1));
         panel.add(scrollPane);
         panel.add(ScrollPane);
-        jf.setContentPane(panel);
-
-        jf.pack();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (button==(JButton)e.getSource()){
-            search s=new search();
-            jf.setContentPane(s.searchDisplayUser(textField.getText()));
-
-            jf.pack();
-        }
+        return panel;
     }
 }
-
