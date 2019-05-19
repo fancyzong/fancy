@@ -25,7 +25,7 @@ public class TUI_register extends JPanel implements ActionListener,KeyListener {
     JTextField text_id=new JTextField("",JTextField.CENTER);
     JTextField text_name=new JTextField("",JTextField.CENTER);
     JTextField text_email=new JTextField("",JTextField.CENTER);
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     public TUI_register(){
         this.setLayout(new GridLayout(2,1));
         Panel p1=new Panel();
@@ -89,7 +89,7 @@ public class TUI_register extends JPanel implements ActionListener,KeyListener {
                 flag = false;
             }
             if (label_idnote.getText().equals("Correct")) {
-                Detector judgement = new Detector();
+                userDetector judgement = new userDetector();
                 try {
                     label_idnote.setText(judgement.useridRegister(text_id.getText()));
                 } catch (FileNotFoundException e1) {

@@ -1,7 +1,7 @@
 package user;
 
-import IOtimer.Detector;
-
+import IOtimer.otherDetector;
+import IOtimer.userDetector;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ public class borrowOrreturn extends JPanel implements ActionListener {
     JButton back=new JButton("Back");
     JButton bor=new JButton("Borrow/Return");
     JLabel title=new JLabel("........",JLabel.CENTER);
-    UI changer=testui.test;
+    UI changer=integationTest.test;
     int stationId;
     String userid;
     public borrowOrreturn(int stationId,String user_id){
@@ -28,8 +28,8 @@ public class borrowOrreturn extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(bor==(JButton)e.getSource()){
-            Detector judg1=new Detector();
-            Detector judg2=new Detector();
+            userDetector judg1=new userDetector();
+            otherDetector judg2=new otherDetector();
             try {
                 if(judg1.userCondition(userid)==true){
                     if(stationId==1){

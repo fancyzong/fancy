@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import IOtimer.*;
 import user.*;
 
 
@@ -15,7 +14,7 @@ public class TUI_monitor extends JPanel implements ActionListener {
     JButton station2=new JButton("Station ：Informatics Teaching Laboratories");
     JButton station3=new JButton("Station ：Village Shop");
     JButton back=new JButton("Go back");
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     public TUI_monitor() {
         this.setLayout(new GridLayout(5,1));
         this.add(user);

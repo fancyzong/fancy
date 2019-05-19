@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import IOtimer.*;
 import user.*;
 
 
@@ -15,7 +14,7 @@ public class SUI extends JPanel implements ActionListener {
     JButton monitor=new JButton("Monitor");
     JButton send_weekly_report=new JButton("Send weekly report");
     JButton payFine=new JButton("Pay a fine");
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     public SUI(){
         this.setLayout(new GridLayout(3,1));
         JPanel panel1=new JPanel(new GridLayout(1,2));

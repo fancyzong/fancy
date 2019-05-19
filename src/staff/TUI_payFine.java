@@ -14,7 +14,7 @@ public class TUI_payFine extends JPanel implements ActionListener {
     JButton pay=new JButton("Pay");
     JLabel message=new JLabel("Input your ID:",JLabel.CENTER);
     JTextField Id=new JTextField("");
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     public TUI_payFine(){
         this.setLayout(new GridLayout(2,2));
         this.add(message);
@@ -30,7 +30,7 @@ public class TUI_payFine extends JPanel implements ActionListener {
             if (Id.getText().length()==0)
                 message.setText("Empty");
             else {
-                Detector D=new Detector();
+                userDetector D=new userDetector();
                 try {
                     message.setText(D.payScan(Id.getText()));
                 } catch (IOException ex) {

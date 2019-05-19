@@ -12,8 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import staff.*;
-import IOtimer.Detector;
-import IOtimer.changeCondi;
+import IOtimer.otherDetector;
+import IOtimer.userChangeCondi;
+import IOtimer.stationChangeCondi;
 import IOtimer.timer;
 
 public class station extends JPanel implements ActionListener {
@@ -32,7 +33,7 @@ public class station extends JPanel implements ActionListener {
     static int userpos;
     static String borrowID="";
     boolean bor;
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     String station[]={"Library","Village_Shop","Information_Teaching_Laboratories"};
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
 
@@ -131,9 +132,10 @@ public class station extends JPanel implements ActionListener {
             scooter[userpos].setText("Empty");
             try {
                 new write_usage_info(station[stationId-1],userId,"borrow",df.format(new Date()),borrowID);
-                changeCondi t=new changeCondi();
+                userChangeCondi t=new userChangeCondi();
+                stationChangeCondi t1=new stationChangeCondi();
                 t.borUserCondi(userId);
-                t.borPosCond(borrowID,station[stationId-1]+".txt");
+                t1.borPosCond(borrowID,station[stationId-1]+".txt");
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -171,7 +173,7 @@ public class station extends JPanel implements ActionListener {
             ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
             p[userpos].setIcon(ii);
             light[userpos].setForeground(Color.BLACK);
-            Detector det=new Detector();
+            otherDetector det=new otherDetector();
             try {
                 borrowID=det.readFromLast(userId);
             } catch (IOException e1) {
@@ -180,9 +182,10 @@ public class station extends JPanel implements ActionListener {
             scooter[userpos].setText(borrowID);
             try {
                 new write_history_info(station[stationId-1],userId,"return",df.format(new Date()),borrowID);
-                changeCondi cc=new changeCondi();
-                cc.retUserCondi(userId);
-                cc.retPosCond(borrowID,station[stationId-1]+".txt");
+                userChangeCondi t2=new userChangeCondi();
+                stationChangeCondi t1=new stationChangeCondi();
+                t2.retUserCondi(userId);
+                t1.retPosCond(borrowID,station[stationId-1]+".txt");
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

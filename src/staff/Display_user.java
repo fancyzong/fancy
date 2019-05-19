@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import IOtimer.*;
-import user.*;
+import IOtimer.userDetector;
+
 
 
 
@@ -125,7 +125,7 @@ public class Display_user implements ActionListener {
             Object[][] obj=new Object[1][6];
             Object[][] OBJ=new Object[1][5];
             JPanel panel = new JPanel();
-            Detector detector=new Detector();
+            userDetector detector=new userDetector();
             try {
                 al=detector.getLine(textField.getText(),"user_information.txt");
                 for (int i=0;i<al.size();i++)

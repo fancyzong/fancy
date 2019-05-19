@@ -1,5 +1,5 @@
 package user;
-import IOtimer.Detector;
+import IOtimer.userDetector;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ public class scanCard extends JPanel implements ActionListener {
     JLabel message=new JLabel("Empty",JLabel.CENTER);
     JButton check=new JButton("Check");
     JButton back=new JButton("Back");
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     int stationId;
     public scanCard(int stationId){
         this.stationId=stationId;
@@ -34,7 +34,7 @@ public class scanCard extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(check==(JButton)e.getSource()){
-            Detector judge = new Detector();
+            userDetector judge = new userDetector();
             try {
                 if(judge.useridScan(user_id.getText())=="ID  exist")
                     swich.bor(stationId,user_id.getText());

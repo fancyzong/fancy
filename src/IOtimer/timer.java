@@ -13,8 +13,8 @@ public class timer {
     private static String userId;
     private double min;
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-    static changeCondi change=new changeCondi();
-    Detector detector=new Detector();
+    static userChangeCondi change=new userChangeCondi();
+    otherDetector detector=new otherDetector();
     public timer(String userId){
         this.userId=userId;
     }

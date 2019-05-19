@@ -9,7 +9,7 @@ public class FUI extends JPanel implements ActionListener {
      JButton user=new JButton("User");
      JButton manager=new JButton("Staff");
      JLabel title=new JLabel("Who are you?",JLabel.CENTER);
-    UI changer=testui.test;
+    UI changer=integationTest.test;
     public FUI(){
         this.setLayout(new GridLayout(3,1));
         this.add(title);

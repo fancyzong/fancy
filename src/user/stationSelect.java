@@ -10,7 +10,7 @@ public class stationSelect extends JPanel implements ActionListener {
     JButton station2=new JButton("Village Shop");
     JButton station3=new JButton("Information Teaching Laboratories");
     JButton back=new JButton("Go back");
-    UI swich=testui.test;
+    UI swich=integationTest.test;
     public stationSelect(){
         this.setLayout(new GridLayout(4,1));
         this.add(station1);
