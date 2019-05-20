@@ -1,8 +1,6 @@
 package IOtimer;
 
 import java.io.*;
-import staff.*;
-import user.*;
 
 
 public class userChangeCondi {

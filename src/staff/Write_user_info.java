@@ -2,9 +2,6 @@ package staff;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import IOtimer.*;
-import user.*;
-
 
 public class Write_user_info {
     public Write_user_info(String name,String id,String email) throws IOException {

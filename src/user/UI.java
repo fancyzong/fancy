@@ -3,10 +3,7 @@ package user;
 import staff.SUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.FileNotFoundException;
-
-import staff.SUI;
 import staff.TUI_monitor;
 import staff.TUI_payFine;
 import staff.TUI_register;

@@ -6,8 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import IOtimer.*;
-import user.*;
 
 public class Display_station  extends JFrame {
     JButton[] scooters=new JButton[8];
