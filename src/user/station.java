@@ -42,7 +42,7 @@ public class station extends JPanel implements ActionListener {
         for (int i = 1; i < 9; i++) {
             position[i] = new JPanel();
             sp[i-1]=new JPanel();
-            ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/WechatIMG66.png");
+            ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/111.png");
             ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
             p[i-1]=new JLabel(ii);
             lock[i - 1] = new JButton("Lock off");

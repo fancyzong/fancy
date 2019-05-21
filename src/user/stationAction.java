@@ -71,7 +71,7 @@ public class stationAction {
         mt.cancel();
         lock[userpos].setText("Lock off");
         light[userpos].setText("Flash off");
-        ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/WechatIMG66.png");
+        ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/111.png");
         ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
         p[userpos].setIcon(ii);
         light[userpos].setForeground(Color.BLACK);
