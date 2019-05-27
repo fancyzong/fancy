@@ -8,6 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
+/**
+ * The user will choose to return/borrow cars or go back  after select the station and scan their ID.
+ * The system will automatically detect if the user is borrowing or returning the car.
+ * Run different code based on the results
+ * @author group 107
+ * @version 4.0
+ */
 public class borrowOrreturn extends JPanel implements ActionListener {
     JButton back=new JButton("Back");
     JButton bor=new JButton("Borrow/Return");
@@ -15,6 +22,11 @@ public class borrowOrreturn extends JPanel implements ActionListener {
     UI changer=integationTest.test;
     int stationId;
     String userid;
+    /**
+     * Use the constructor to lay out the module and add listeners to the buttons.
+     * @param stationId  Indicate which station the user choose
+     * @param user_id Indicate the user's ID
+     */
     public borrowOrreturn(int stationId,String user_id){
         this.stationId=stationId;
         this.userid=user_id;
@@ -25,6 +37,11 @@ public class borrowOrreturn extends JPanel implements ActionListener {
         back.addActionListener(this);
         bor.addActionListener(this);
     }
+    /**
+     * override the function in the super class,Gives the method you need to call when you press a button.
+     * one button for checking the user's data and station data, one button for going back to the upper layer.
+     * @param e Indicate which button has been pressed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(bor==(JButton)e.getSource()){

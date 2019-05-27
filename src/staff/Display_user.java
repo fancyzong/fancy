@@ -21,6 +21,12 @@ public class Display_user implements ActionListener {
     static JLabel tt2=new JLabel("Vehicle information that the user is using");
     JButton button=new JButton("search");
     JTextField textField=new JTextField();
+
+    /**
+     * Constructor lays out two windows.
+     * One for displaying the data of users, one frame for search the data of one user
+     * @throws FileNotFoundException Read the data from user_information.txt and usage_information.txt
+     */
     public Display_user() throws FileNotFoundException {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel panel1=new JPanel(new BorderLayout());
@@ -44,55 +50,43 @@ public class Display_user implements ActionListener {
         fullfill ff=new fullfill();
         JTable table = new JTable(ff.fullfillobject(6,"user_information.txt"), columnNames);
         JTable Table = new JTable(ff.fullfillobject(5,"usage_information.txt"), ColumnNames);
-        table.setForeground(Color.BLACK);                   // 字体颜色
-        table.setFont(new Font(null, Font.PLAIN, 14));      // 字体样式
-        table.setSelectionForeground(Color.DARK_GRAY);      // 选中后字体颜色
-        table.setSelectionBackground(Color.LIGHT_GRAY);     // 选中后字体背景
-        table.setGridColor(Color.GRAY);                     // 网格颜色
+        table.setForeground(Color.BLACK);                   // font color
+        table.setFont(new Font(null, Font.PLAIN, 14));      // Font style
+        table.setSelectionForeground(Color.DARK_GRAY);      // font color after being selected
+        table.setSelectionBackground(Color.LIGHT_GRAY);     // font background after being selected
+        table.setGridColor(Color.GRAY);                     // Grid color
 
-        // 设置表头
-        table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));  // 设置表头名称字体样式
-        table.getTableHeader().setForeground(Color.RED);                // 设置表头名称字体颜色
-        table.getTableHeader().setResizingAllowed(false);               // 设置不允许手动改变列宽
-        table.getTableHeader().setReorderingAllowed(false);             // 设置不允许拖动重新排序各列
+        // Setting header
+        table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));  //Set the header name font style
+        table.getTableHeader().setForeground(Color.RED);                // Set the header name font color
+        table.getTableHeader().setResizingAllowed(false);               // Settings do not allow manual change of column width
+        table.getTableHeader().setReorderingAllowed(false);             // Setting does not allow dragging to reorder columns
 
-        // 设置行高
+        // Set line height
         table.setRowHeight(30);
 
-        // 第一列列宽设置为40
+        // The first column width is set to 40
         table.getColumnModel().getColumn(0).setPreferredWidth(70);
 
-        // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
+        // Set the size of the scroll panel viewport (more than the row data of this size, you need to drag the scroll bar to see)
         table.setPreferredScrollableViewportSize(new Dimension(600, 200));
 
-        // 把 表格 放到 滚动面板 中（表头将自动添加到滚动面板顶部）
+        // Place the table in the scroll panel (the header will be automatically added to the top of the scroll panel)
         JScrollPane scrollPane = new JScrollPane(table);
 
-        Table.setForeground(Color.BLACK);                   // 字体颜色
-        Table.setFont(new Font(null, Font.PLAIN, 14));      // 字体样式
-        Table.setSelectionForeground(Color.DARK_GRAY);      // 选中后字体颜色
-        Table.setSelectionBackground(Color.LIGHT_GRAY);     // 选中后字体背景
-        Table.setGridColor(Color.GRAY);                     // 网格颜色
-
-        // 设置表头
-        Table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));  // 设置表头名称字体样式
-        Table.getTableHeader().setForeground(Color.RED);                // 设置表头名称字体颜色
-        Table.getTableHeader().setResizingAllowed(false);               // 设置不允许手动改变列宽
-        Table.getTableHeader().setReorderingAllowed(false);             // 设置不允许拖动重新排序各列
-
-        // 设置行高
+        Table.setForeground(Color.BLACK);
+        Table.setFont(new Font(null, Font.PLAIN, 14));
+        Table.setSelectionForeground(Color.DARK_GRAY);
+        Table.setSelectionBackground(Color.LIGHT_GRAY);
+        Table.setGridColor(Color.GRAY);
+        Table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));
+        Table.getTableHeader().setForeground(Color.RED);
+        Table.getTableHeader().setResizingAllowed(false);
+        Table.getTableHeader().setReorderingAllowed(false);
         Table.setRowHeight(30);
-
-        // 第一列列宽设置为40
         Table.getColumnModel().getColumn(3).setPreferredWidth(120);
-
-        // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
         Table.setPreferredScrollableViewportSize(new Dimension(600, 200));
-
-        // 把 表格 放到 滚动面板 中（表头将自动添加到滚动面板顶部）
         JScrollPane ScrollPane = new JScrollPane(Table);
-
-        // 添加 滚动面板 到 内容面板
         panel.add(BorderLayout.CENTER,scrollPane);
         panel.add(BorderLayout.NORTH,tt1);
         panel1.add(BorderLayout.CENTER,ScrollPane);

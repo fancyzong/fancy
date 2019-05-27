@@ -16,6 +16,7 @@ public class registerFunction {
      */
     public void check(){
         boolean flag = true;
+        //Check if the name is empty or more than 20 digits.
         if (text_name.getText().length() > 20 ) {
             label_namenote.setText("20 chars limited");
             flag = false;
@@ -24,6 +25,7 @@ public class registerFunction {
             label_namenote.setText("Empty");
             flag = false;
         }
+        //Check if the student number is exactly nine figures.
         else
             label_namenote.setText("Correct");
         if (text_id.getText().length() != 9) {
@@ -41,6 +43,7 @@ public class registerFunction {
                 }
             }
         }
+        //Check if the mailbox format matches ***@***
         if ((text_email.getText().indexOf("@") + 1 < text_email.getText().length()) && text_email.getText().indexOf("@") > 0)
             label_emailnote.setText("Correct");
         else {

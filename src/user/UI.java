@@ -7,9 +7,14 @@ import java.io.FileNotFoundException;
 import staff.TUI_monitor;
 import staff.TUI_payFine;
 import staff.TUI_register;
-
+/**
+ * This class is used to show the GUI
+ * @author group 107
+ * @version 4.0
+ */
 public class UI extends JFrame {
     JPanel panel=new JPanel();
+
     public void init(){
         this.setLocationRelativeTo(null);
         this.setTitle("Scooter Sharing System");
@@ -83,9 +88,6 @@ public class UI extends JFrame {
         repaint();
     }
     public void stationBor(int stationId,String userid,boolean cond) {
-        /*this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);*/
         setSize(800, 300);
         this.setTitle("station");
         this.remove(panel);

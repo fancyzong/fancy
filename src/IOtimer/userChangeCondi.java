@@ -87,7 +87,6 @@ public class userChangeCondi {
                 linearray[linearray.length-3]="0";
                 for (int i=0;i<linearray.length;i++)
                     temp=temp+linearray[i]+" ";
-                //System.out.println(temp);
                 buf.append(temp+"\r\n");
             }
             else
