@@ -24,11 +24,11 @@ public class Display_user implements ActionListener {
         Panel.add(button);
         button.addActionListener(this);
         search.add(Panel);
-        jf.setLocationRelativeTo(null);
+        jf.setLocation(500,320);
         jf.setTitle("User information");
         jf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         jf.setVisible(true);
-        search.setLocationRelativeTo(null);
+        search.setLocation(300,300);
         search.setTitle("User information");
         search.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         search.setSize(200,100);
