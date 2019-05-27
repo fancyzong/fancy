@@ -7,6 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * The display set layer.
+ * This class is mainly to set the appearance of the UI(for station)
+ * @author group 107
+ * @version 4.0
+ */
 public class Display_station  extends JFrame {
     JButton[] scooters=new JButton[8];
     public Display_station(String name){

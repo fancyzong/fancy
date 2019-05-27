@@ -9,17 +9,29 @@ import java.util.Timer;
 import java.util.TimerTask;
 import staff.*;
 
+/**
+ * The time control layer, write some methods related to time calculation.
+ * There are also functions that are similar to the time trigger function.
+ * @author group 107
+ * @version 2.0
+ */
 public class timer {
     private static String userId;
     private double min;
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
     static userChangeCondi change=new userChangeCondi();
     otherDetector detector=new otherDetector();
-    public timer(String userId){
-        this.userId=userId;
-    }
+    public timer(String userId){ this.userId=userId; }
     public String getUserId(){return userId;}
 
+    /**
+     * Calculate the time of using the bicycle to determine if a fine is needed
+     * In both cases, you need to be fined: more than half an hour of use one time, more than two hours a day.
+     * @param endTime Indicates when the user borrowed the car
+     * @return Indicate whether it was fined
+     * @throws IOException Modify the data of user_informatiuon.txt
+     * @throws ParseException An exception is thrown when the time format is not uniform with the specified time format.
+     */
     public boolean judge(String endTime) throws IOException, ParseException {
         Date now = df.parse(endTime);
         Date date=df.parse(detector.getTime(userId));
@@ -38,6 +50,11 @@ public class timer {
        return true;
     }
 
+    /**
+     * Time trigger function。
+     * The trigger period is one day and the trigger time is 24 .
+     * Used to initialize user usage time.
+     */
     public static void initacc() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 24);
@@ -54,11 +71,15 @@ public class timer {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.out.println("zzzzzzz");
+                //System.out.println("zzzzzzz");
             }
         }, time, 1000 * 60*60*24);
     }
-
+    /**
+     * Time trigger function
+     * The trigger period is one week and the trigger time is 24 on Saturday.
+     * Used to send mail to each user.
+     */
     public static void sendReport() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 24);
@@ -71,7 +92,7 @@ public class timer {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                System.out.println("jniunuini");
+                //System.out.println("jniunuini");
                 try {
                     TUI_send_report tsr=new TUI_send_report();
                     tsr.sendreport();

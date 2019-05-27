@@ -4,8 +4,16 @@ import IOtimer.userDetector;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import static staff.TUI_register.*;
-
+/**
+ * The check layer.
+ * This class is mainly to check the legality of the user's input
+ * @author group 107
+ * @version 4.0
+ */
 public class registerFunction {
+    /**
+     * This method is called when the input is to be checked and give the corresponding tips after checking
+     */
     public void check(){
         boolean flag = true;
         if (text_name.getText().length() > 20 ) {

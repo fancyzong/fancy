@@ -8,7 +8,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import user.*;
 
-
+/**
+ * The information control layer provides the operator with the operation interface of the registered user.
+ * The operator needs to provide three data types: mailbox, name and student number.
+ * When the data meets certain specifications, it can be written.
+ * @author group 107
+ * @version 4.0
+ */
 public class TUI_register extends JPanel implements ActionListener,KeyListener {
     JButton check=new JButton("Check");
     JButton clear=new JButton("Clear");
@@ -24,6 +30,9 @@ public class TUI_register extends JPanel implements ActionListener,KeyListener {
     static JTextField text_email=new JTextField("",JTextField.CENTER);
     UI swich=integationTest.test;
     registerFunction rf=new registerFunction();
+    /**
+     * Use the constructor to lay out the module and add listeners to the buttons.
+     */
     public TUI_register(){
         this.setLayout(new GridLayout(2,1));
         Panel p1=new Panel();
@@ -51,6 +60,10 @@ public class TUI_register extends JPanel implements ActionListener,KeyListener {
         check.addActionListener(this);
         clear.addActionListener(this);
     }
+    /**
+     * override the function in the super class,Gives the method you need to call when you press a button.
+     * @param e Indicate which button has been pressed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (check==(JButton)e.getSource()) {

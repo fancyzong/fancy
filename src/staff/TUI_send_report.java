@@ -2,9 +2,13 @@ package staff;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-import IOtimer.*;
-import user.*;
+/**
+ * The information reading layer classifies and organizes the information in the document.
+ * Classified according to different user IDs,
+ * Generate a text file for each user to simulate sending a message.
+ * @author group 107
+ * @version 4.0
+ */
 
 import javax.swing.*;
 
@@ -13,6 +17,11 @@ public class TUI_send_report extends JFrame {
     ArrayList<String> al=new ArrayList<String>();
     JTextArea textArea=new JTextArea();
     JScrollPane jScrollPane=new JScrollPane(textArea);
+
+    /**
+     * Generate an empty document for each user based on the user information in the user_information.txt.
+     * @throws IOException Read user_information.txt file and produce many new documents
+     */
     public void clearReport() throws IOException {
         BufferedReader br1;
         try (FileReader fr = new FileReader("user_information.txt")) {
@@ -37,6 +46,12 @@ public class TUI_send_report extends JFrame {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Write the information in history.txt to the corresponding text according to the ID.
+     * A window is generated to indicate that the message was sent successfully.
+     * @throws IOException Read the data of history.txt
+     */
     public void sendreport() throws IOException {
         BufferedReader br;
         clearReport();

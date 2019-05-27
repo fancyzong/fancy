@@ -7,7 +7,12 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 
-
+/**
+ * The display set layer.
+ * This class is mainly to set the appearance of the UI(for user)
+ * @author group 107
+ * @version 4.0
+ */
 
 public class Display_user implements ActionListener {
     JFrame jf=new JFrame();

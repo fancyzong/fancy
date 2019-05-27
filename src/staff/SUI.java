@@ -7,6 +7,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import user.*;
 
+/**
+ * A display module that we uses a constructor to generate.
+ * Staff will operate with this panel,this module provides access to four functions for staff management.
+ * @author group 107
+ * @version 4.0
+ */
 
 public class SUI extends JPanel implements ActionListener {
     JButton register=new JButton("Register");
@@ -15,6 +21,10 @@ public class SUI extends JPanel implements ActionListener {
     JButton send_weekly_report=new JButton("Send weekly report");
     JButton payFine=new JButton("Pay a fine");
     UI swich=integationTest.test;
+
+    /**
+     * Use the constructor to lay out the module and add listeners to the buttons.
+     */
     public SUI(){
         this.setLayout(new GridLayout(3,1));
         JPanel panel1=new JPanel(new GridLayout(1,2));
@@ -32,6 +42,11 @@ public class SUI extends JPanel implements ActionListener {
         monitor.addActionListener(this);
         send_weekly_report.addActionListener(this);
     }
+
+    /**
+     * override the function in the super class,Gives the method you need to call when you press a button.
+     * @param e Indicate which button has been pressed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(register==(JButton)e.getSource()){

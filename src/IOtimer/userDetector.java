@@ -5,8 +5,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * Information acquisition layer,check if the user is in the file(if registered).
+ * Each method is a unique method given different search conditions
+ * @author group 107
+ * @version 4.0
+ */
 public class userDetector {
+    /**
+     * This method is called when a new user want to register. It used for checking if the user is registered or not
+     * @param id This is used for search the file to find whether there is a user has the same id already
+     * @return In order to indicate the checking result
+     * @throws FileNotFoundException As we need to search the user_formation.txt for checking
+     */
     public String useridRegister(String id) throws FileNotFoundException {
         if(id.length()!=0) {
             int flag = 0;
@@ -25,6 +36,13 @@ public class userDetector {
         else
             return "empty";
     }
+
+    /**
+     * This method is called when a user want to enter a station. It aimed to check if the user is registered and legal
+     * @param id It is used for searching the relative information
+     * @return  In order to indicate the user's next operation
+     * @throws FileNotFoundException As we need to search the user_information.txt
+     */
     public String useridScan(String id) throws FileNotFoundException {
         if(id.length()!=0) {
             int flag = 0;
@@ -48,6 +66,13 @@ public class userDetector {
         else
             return "empty";
     }
+
+    /**
+     * This method is called when the system needs to check whether the user's status is legal
+     * @param id In order to search the specific user's information in the file
+     * @return In order to indicate the user's condition
+     * @throws FileNotFoundException As we need to search the file
+     */
     public boolean userCondition(String id) throws FileNotFoundException {
             int flag = 0;
             int label=0;
@@ -64,6 +89,12 @@ public class userDetector {
             return cond;
     }
 
+    /**
+     * This method is called when the user want to pay the fine
+     * @param id In order to search the specific information from the file
+     * @return  In order to indicate the user how the current situation(whether successful or not)
+     * @throws IOException As we need to search the user_information.txt
+     */
     public String payScan(String id) throws IOException {
             int flag = 0;
             int cond=0;
@@ -89,6 +120,13 @@ public class userDetector {
 
     }
 
+    /**
+     * This method is called when we need to get a specific line in a specific file
+     * @param userId    Used for search
+     * @param filename  Used for search specific file
+     * @return  The specific information
+     * @throws IOException As we need to read file
+     */
     public ArrayList<String> getLine(String userId, String filename) throws IOException {
         BufferedReader br;
         ArrayList<String> arrayList=new ArrayList<String>();

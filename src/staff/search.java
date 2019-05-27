@@ -9,8 +9,18 @@ import java.util.ArrayList;
 
 import static staff.Display_user.tt1;
 import static staff.Display_user.tt2;
-
+/**
+ * The get-input layer.
+ * This class is mainly to set the UI for the user's input
+ * @author group 107
+ * @version 4.0
+ */
 public class search {
+    /**
+     * This method is called when the manager want to get the information to form a chart
+     * @param userId In order to search the user's information
+     * @return
+     */
     public JPanel searchDisplayUser(String userId){
         String[] columnNames={"name","ID","email","fine","condition","accumulation"};
         String[] ColumnNames={"station","user_ID","borrow","time","scooter_ID"};

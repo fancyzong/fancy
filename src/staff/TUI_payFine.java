@@ -8,6 +8,12 @@ import java.io.IOException;
 import IOtimer.*;
 import user.*;
 
+/**
+ * Data control layer, providing the operator with a fine operation interface
+ * The administrator can provide a fine for the user by providing the user's id.
+ * @author group 107
+ * @version 4.0
+ */
 
 public class TUI_payFine extends JPanel implements ActionListener {
     JButton goback=new JButton("Back");
@@ -15,6 +21,10 @@ public class TUI_payFine extends JPanel implements ActionListener {
     JLabel message=new JLabel("Input your ID:",JLabel.CENTER);
     JTextField Id=new JTextField("");
     UI swich=integationTest.test;
+
+    /**
+     * Use the constructor to lay out the module and add listeners to the buttons.
+     */
     public TUI_payFine(){
         this.setLayout(new GridLayout(2,2));
         this.add(message);
@@ -24,6 +34,10 @@ public class TUI_payFine extends JPanel implements ActionListener {
         pay.addActionListener(this);
         goback.addActionListener(this);
     }
+    /**
+     * override the function in the super class,Gives the method you need to call when you press a button.
+     * @param e Indicate which button has been pressed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (pay ==(JButton)e.getSource()) {
