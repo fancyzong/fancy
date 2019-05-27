@@ -7,6 +7,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static staff.Display_user.tt1;
+import static staff.Display_user.tt2;
+
 public class search {
     public JPanel searchDisplayUser(String userId){
         String[] columnNames={"name","ID","email","fine","condition","accumulation"};
@@ -15,7 +18,9 @@ public class search {
         ArrayList<String> AL=new ArrayList<String>();
         Object[][] obj=new Object[1][6];
         Object[][] OBJ=new Object[1][5];
-        JPanel panel = new JPanel();
+        JPanel panel2 = new JPanel(new BorderLayout());
+        JPanel panel1=new JPanel(new BorderLayout());
+        JPanel panel = new JPanel(new GridLayout(2,1));
         userDetector detector=new userDetector();
         try {
             al=detector.getLine(userId,"user_information.txt");
@@ -52,7 +57,7 @@ public class search {
         table.getColumnModel().getColumn(0).setPreferredWidth(40);
 
         // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
-        table.setPreferredScrollableViewportSize(new Dimension(400, 200));
+        table.setPreferredScrollableViewportSize(new Dimension(600, 200));
 
         // 把 表格 放到 滚动面板 中（表头将自动添加到滚动面板顶部）
         JScrollPane scrollPane = new JScrollPane(table);
@@ -76,15 +81,18 @@ public class search {
         Table.getColumnModel().getColumn(0).setPreferredWidth(40);
 
         // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
-        Table.setPreferredScrollableViewportSize(new Dimension(400, 200));
+        Table.setPreferredScrollableViewportSize(new Dimension(600, 200));
 
         // 把 表格 放到 滚动面板 中（表头将自动添加到滚动面板顶部）
         JScrollPane ScrollPane = new JScrollPane(Table);
 
         // 添加 滚动面板 到 内容面板
-        panel.setLayout(new GridLayout(2,1));
-        panel.add(scrollPane);
-        panel.add(ScrollPane);
+        panel2.add(BorderLayout.CENTER,scrollPane);
+        panel2.add(BorderLayout.NORTH,tt1);
+        panel1.add(BorderLayout.CENTER,ScrollPane);
+        panel1.add(BorderLayout.NORTH,tt2);
+        panel.add(panel2);
+        panel.add(panel1);
         return panel;
     }
 }

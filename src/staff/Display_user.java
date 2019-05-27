@@ -12,11 +12,14 @@ import java.io.*;
 public class Display_user implements ActionListener {
     JFrame jf=new JFrame();
     JFrame search=new JFrame();
+    static JLabel tt1=new JLabel("user history");
+    static JLabel tt2=new JLabel("Vehicle information that the user is using");
     JButton button=new JButton("search");
     JTextField textField=new JTextField();
     public Display_user() throws FileNotFoundException {
-        JPanel panel = new JPanel();
-        JPanel Panel = new JPanel(new GridLayout(1,2));
+        JPanel panel = new JPanel(new BorderLayout());
+        JPanel panel1=new JPanel(new BorderLayout());
+        JPanel Panel = new JPanel(new GridLayout(1,3));
         Panel.add(textField);
         Panel.add(button);
         button.addActionListener(this);
@@ -79,17 +82,19 @@ public class Display_user implements ActionListener {
         Table.getColumnModel().getColumn(3).setPreferredWidth(120);
 
         // 设置滚动面板视口大小（超过该大小的行数据，需要拖动滚动条才能看到）
-        Table.setPreferredScrollableViewportSize(new Dimension(400, 200));
+        Table.setPreferredScrollableViewportSize(new Dimension(600, 200));
 
         // 把 表格 放到 滚动面板 中（表头将自动添加到滚动面板顶部）
         JScrollPane ScrollPane = new JScrollPane(Table);
 
         // 添加 滚动面板 到 内容面板
-        panel.setLayout(new GridLayout(2,1));
-        panel.add(scrollPane);
-        panel.add(ScrollPane);
-        jf.setContentPane(panel);
-
+        panel.add(BorderLayout.CENTER,scrollPane);
+        panel.add(BorderLayout.NORTH,tt1);
+        panel1.add(BorderLayout.CENTER,ScrollPane);
+        panel1.add(BorderLayout.NORTH,tt2);
+        jf.setLayout(new GridLayout(2,1));
+        jf.add(panel);
+        jf.add(panel1);
         jf.pack();
     }
 
