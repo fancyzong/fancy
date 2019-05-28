@@ -60,8 +60,7 @@ public class SUI extends JPanel implements ActionListener {
         }
         else if (send_weekly_report==(JButton)e.getSource()){
             try {
-                TUI_send_report tsr=new TUI_send_report();
-                tsr.sendreport();
+                new TUI_send_report();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

@@ -3,10 +3,19 @@ package user;
 import java.awt.*;
 
 import static user.station.*;
+/**
+ * This is used for count down as a counter
+ * @author group 107
+ * @version 4.0
+ */
+
 
 public class Mythread implements Runnable {
+    /**
+     * This method is used for start to count down
+     */
 
-        @Override
+    @Override
         public void run() {
             while (countdown>=0){
                 light[userpos].setText("<html>Flash on:"+"\n"+String.valueOf(countdown)+"left<html>");
@@ -30,7 +39,11 @@ public class Mythread implements Runnable {
                 light[userpos].setText("Flash off");
             }
         }
-        public static void cancel(){
+    /**
+     * This method is called for stopping count down
+     */
+
+    public static void cancel(){
             countdown=-2;
         }
 }

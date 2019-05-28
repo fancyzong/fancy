@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  */
 public class FUI extends JPanel implements ActionListener {
      JButton user=new JButton("User");
-     JButton manager=new JButton("Staff");
+     JButton manager=new JButton("Manager");
      JLabel title=new JLabel("Who are you?",JLabel.CENTER);
     UI changer=integationTest.test;
     /**

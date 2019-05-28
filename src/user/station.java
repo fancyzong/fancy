@@ -6,6 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
+/**
+ * This is used for showing the situation of a specific station that the user is chose previously
+ * @author group 107
+ * @version 4.0
+ */
 
 public class station extends JPanel implements ActionListener {
     static int countdown;
@@ -26,6 +31,13 @@ public class station extends JPanel implements ActionListener {
     static String station[]={"Library","Village_Shop","Information_Teaching_Laboratories"};
     static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
     stationAction sa=new stationAction();
+    /**
+     * This method is used for showing the situation of a specific station
+     * @param stationId In order to indicate which station it is showing about
+     * @param userId In order to indicate which user is in the station
+     * @param bor In order to show whether the user is to borrow or return a scooter
+     * @throws FileNotFoundException As we have use pictures for indicating more obviously
+     */
 
     public station(int stationId,String userId,boolean bor)throws FileNotFoundException {
         countdown=60;
@@ -65,7 +77,9 @@ public class station extends JPanel implements ActionListener {
             sa.retStationLayout(stationId);
         }
     }
-
+    /**
+     * This method is used foe listen the action of the user
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (lock[userpos]==(JButton)e.getSource()&&bor==true&&countdown>=0){
