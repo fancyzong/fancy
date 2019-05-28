@@ -38,12 +38,12 @@ public class timer {
         min=(now.getTime()-date.getTime())*1.0/1000/60;
         System.out.println(min+"\n");
         if (min>1) {
-            change.Fine(userId);
+            change.Fine(userId,1);
             System.out.println("Exceed time limit");
             return false;
         }
        if (change.addAcc(userId,min)==false) {
-           change.Fine(userId);
+           change.Fine(userId,1);
            System.out.println("Exceed time limit");
            return false;
        }

@@ -7,8 +7,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static staff.Display_user.tt1;
-import static staff.Display_user.tt2;
 /**
  * The get-input layer.
  * This class is mainly to set the UI for the user's input
@@ -48,37 +46,9 @@ public class search {
         }
         JTable table = new JTable(obj, columnNames);
         JTable Table = new JTable(OBJ, ColumnNames);
-        table.setForeground(Color.BLACK);
-        table.setFont(new Font(null, Font.PLAIN, 14));
-        table.setSelectionForeground(Color.DARK_GRAY);
-        table.setSelectionBackground(Color.LIGHT_GRAY);
-        table.setGridColor(Color.GRAY);
-        table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));
-        table.getTableHeader().setForeground(Color.RED);
-        table.getTableHeader().setResizingAllowed(false);
-        table.getTableHeader().setReorderingAllowed(false);
-        table.setRowHeight(30);
-        table.getColumnModel().getColumn(0).setPreferredWidth(40);
-        table.setPreferredScrollableViewportSize(new Dimension(600, 200));
-        JScrollPane scrollPane = new JScrollPane(table);
-        Table.setForeground(Color.BLACK);
-        Table.setFont(new Font(null, Font.PLAIN, 14));
-        Table.setSelectionForeground(Color.DARK_GRAY);
-        Table.setGridColor(Color.GRAY);
-        Table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));
-        Table.getTableHeader().setForeground(Color.RED);
-        Table.getTableHeader().setResizingAllowed(false);
-        Table.getTableHeader().setReorderingAllowed(false);
-        Table.setRowHeight(30);
-        Table.getColumnModel().getColumn(0).setPreferredWidth(40);
-        Table.setPreferredScrollableViewportSize(new Dimension(600, 200));
-        JScrollPane ScrollPane = new JScrollPane(Table);
-        panel2.add(BorderLayout.CENTER,scrollPane);
-        panel2.add(BorderLayout.NORTH,tt1);
-        panel1.add(BorderLayout.CENTER,ScrollPane);
-        panel1.add(BorderLayout.NORTH,tt2);
-        panel.add(panel2);
-        panel.add(panel1);
+        fulfil ff1=new fulfil();
+        panel.add(ff1.setTable(table,"user basic information"));
+        panel.add(ff1.setTable(Table,"usage information"));
         return panel;
     }
 }

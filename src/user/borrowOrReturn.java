@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
  * @author group 107
  * @version 4.0
  */
-public class borrowOrreturn extends JPanel implements ActionListener {
+public class borrowOrReturn extends JPanel implements ActionListener {
     JButton back=new JButton("Back");
     JButton bor=new JButton("Borrow/Return");
     JLabel title=new JLabel("........",JLabel.CENTER);
@@ -27,7 +27,7 @@ public class borrowOrreturn extends JPanel implements ActionListener {
      * @param stationId  Indicate which station the user choose
      * @param user_id Indicate the user's ID
      */
-    public borrowOrreturn(int stationId,String user_id){
+    public borrowOrReturn(int stationId,String user_id){
         this.stationId=stationId;
         this.userid=user_id;
         this.setLayout(new GridLayout(3,1));
@@ -50,36 +50,36 @@ public class borrowOrreturn extends JPanel implements ActionListener {
             try {
                 if(judg1.userCondition(userid)==true){
                     if(stationId==1){
-                        if (judg2.stationCondition1("Library")==false)
+                        if (judg2.stationCondition("Library",1)==false)
                             title.setText("No scooster");
                         else changer.stationBor(stationId,userid,true);
 
                     }
                     else if (stationId==2){
-                        if (judg2.stationCondition1("Village_Shop")==false)
+                        if (judg2.stationCondition("Village_Shop",1)==false)
                             title.setText("No scooster");
                         else changer.stationBor(stationId,userid,true);
                     }
                     else if (stationId==3){
-                        if (judg2.stationCondition1("Information_Teaching_Laboratories")==false)
+                        if (judg2.stationCondition("Information_Teaching_Laboratories",1)==false)
                             title.setText("No scooster");
                         else changer.stationBor(stationId,userid,true);
                     }
                 }
                 else {
                     if(stationId==1){
-                        if (judg2.stationCondition2("Library")==false)
+                        if (judg2.stationCondition("Library",0)==false)
                             title.setText("No vacancy");
                         else changer.stationBor(stationId,userid,false);
 
                     }
                     else if (stationId==2){
-                        if (judg2.stationCondition2("Village_Shop")==false)
+                        if (judg2.stationCondition("Village_Shop",0)==false)
                             title.setText("No vacancy");
                         else changer.stationBor(stationId,userid,false);
                     }
                     else if (stationId==3){
-                        if (judg2.stationCondition2("Information_Teaching_Laboratories")==false)
+                        if (judg2.stationCondition("Information_Teaching_Laboratories",0)==false)
                             title.setText("No vacancy");
                         else changer.stationBor(stationId,userid,false);
                     }

@@ -11,19 +11,23 @@ import java.util.Scanner;
  */
 public class otherDetector {
     /**
-     * When the user borrows the scooter, call this function before entering the station to see if there is a car at the station.
+     * When the user borrows/return the scooter, call this function before entering the station to see if there is a scooter/empty position at the station.
      * @param stationName Indicate which stations the user selected.
+     * @param condition Determine which retrieval method is based on the value of the condition.
      * @return Indicates if there is a car in the station.
      * @throws FileNotFoundException Read information from the station file.
      */
-    public boolean stationCondition1(String stationName) throws FileNotFoundException {
+    public boolean stationCondition(String stationName,int condition) throws FileNotFoundException {
         int flag = 0;
         int counter=0;
+        String content="false";
+        if (condition==1)
+            content="true";
         Scanner scanner = new Scanner(new FileInputStream(stationName+".txt"));
         while (scanner.hasNext()) {
             String str = scanner.next();
             flag++;
-            if ( flag%2==1&&"true".equals(str))
+            if ( flag%2==1&&content.equals(str))
                 counter++;
         }
         if (counter==0)
@@ -32,30 +36,10 @@ public class otherDetector {
             return true;
     }
 
-    /**
-     * When the user returns the scooter, call this function before entering the station to see if there is a empty position at the station.
-     * @param stationName Indicate which stations the user selected.
-     * @return  Indicates if there is a empty position in the station.
-     * @throws FileNotFoundException Read information from the station file.
-     */
-    public boolean stationCondition2(String stationName) throws FileNotFoundException {
-        int flag = 0;
-        int counter=0;
-        Scanner scanner = new Scanner(new FileInputStream(stationName+".txt"));
-        while (scanner.hasNext()) {
-            String str = scanner.next();
-            flag++;
-            if ( flag%2==1&&"false".equals(str))
-                counter++;
-        }
-        if (counter==0)
-            return false;
-        else
-            return true;
-    }
+
 
     /**
-     * It is called when the user returns the car, and finds the user's borrowing time, which is used to calculate the user's car time.
+     * It is called when we need some specific message,for example: finds the user's borrowing time, which is used to calculate the user's car time.
      * @param userId Search condition,indicates which user’s borrowing time is to be checked.
      * @return Indicate the user’s borrowing time
      * @throws IOException Read information from usage_information.txt file

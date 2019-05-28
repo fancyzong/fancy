@@ -4,6 +4,7 @@ import IOtimer.userDetector;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import static staff.TUI_register.*;
+import user.user;
 /**
  * The check layer.
  * This class is mainly to check the legality of the user's input
@@ -17,6 +18,7 @@ public class registerFunction {
     public void check(){
         boolean flag = true;
         //Check if the name is empty or more than 20 digits.
+        user u=new user(text_email.getText(),text_name.getText(),text_id.getText());
         if (text_name.getText().length() > 20 ) {
             label_namenote.setText("20 chars limited");
             flag = false;
@@ -62,7 +64,7 @@ public class registerFunction {
             flag=false;
         if (flag == true) {
             try {
-                new Write_user_info(text_name.getText(), text_id.getText(), text_email.getText());
+                new writeUserInfo(u.getName(),u.getID(),u.getEmail());
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -71,6 +73,10 @@ public class registerFunction {
             text_email.setText("");
         }
     }
+
+    /**
+     *
+     */
     public void clear(){
         text_id.setText("");
         text_name.setText("");

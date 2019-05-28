@@ -46,17 +46,17 @@ public class TUI_monitor extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(user==(JButton)e.getSource()){
             try {
-                new Display_user();
+                new displayUser();
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             }
         }
         if(station1==(JButton)e.getSource())
-            new Display_station("Library.txt");
+            new displayStation("Library.txt");
         if(station2==(JButton)e.getSource())
-            new Display_station("Information_Teaching_Laboratories.txt");
+            new displayStation("Information_Teaching_Laboratories.txt");
         if(station3==(JButton)e.getSource())
-            new Display_station("Village_Shop.txt");
+            new displayStation("Village_Shop.txt");
         if (back==(JButton)e.getSource()){
             swich.staff();
         }

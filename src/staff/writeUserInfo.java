@@ -10,7 +10,7 @@ import java.io.IOException;
  * @version 1.0
  */
 
-public class Write_user_info {
+public class writeUserInfo {
     /**
      * Use the constructor to perform a file write operation.
      * @param name user's name
@@ -18,7 +18,7 @@ public class Write_user_info {
      * @param email user's email
      * @throws IOException modify the data of user)information.txt
      */
-    public Write_user_info(String name,String id,String email) throws IOException {
+    public writeUserInfo(String name,String id,String email) throws IOException {
         FileWriter fw = new FileWriter("user_information.txt",true);
         fw.write(name+" ");
         fw.write(id+" ");

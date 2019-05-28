@@ -51,11 +51,11 @@ public class scanCard extends JPanel implements ActionListener {
         if(check==(JButton)e.getSource()){
             userDetector judge = new userDetector();
             try {
-                if(judge.useridScan(user_id.getText())=="ID  exist")
+                if(judge.Scan(user_id.getText(),1)=="ID  exist")
                     swich.bor(stationId,user_id.getText());
                 else
-                    message.setText(judge.useridScan(user_id.getText()));
-            } catch (FileNotFoundException e1) {
+                    message.setText(judge.Scan(user_id.getText(),1));
+            } catch (java.io.IOException e1) {
                 e1.printStackTrace();
             }
         }

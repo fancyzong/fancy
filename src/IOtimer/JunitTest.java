@@ -24,7 +24,7 @@ public class JunitTest {
     @Test
     void Testfine() throws IOException {
         userChangeCondi changeCondi=new userChangeCondi();
-        changeCondi.Fine("111111111");
+        changeCondi.Fine("111111111",1);
     }
     /**
      * test the instructor in the class station

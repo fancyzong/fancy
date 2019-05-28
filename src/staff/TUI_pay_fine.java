@@ -15,7 +15,7 @@ import user.*;
  * @version 4.0
  */
 
-public class TUI_payFine extends JPanel implements ActionListener {
+public class TUI_pay_fine extends JPanel implements ActionListener {
     JButton goback=new JButton("Back");
     JButton pay=new JButton("Pay");
     JLabel message=new JLabel("Input your ID:",JLabel.CENTER);
@@ -25,7 +25,7 @@ public class TUI_payFine extends JPanel implements ActionListener {
     /**
      * Use the constructor to lay out the module and add listeners to the buttons.
      */
-    public TUI_payFine(){
+    public TUI_pay_fine(){
         this.setLayout(new GridLayout(2,2));
         this.add(message);
         this.add(Id);
@@ -40,13 +40,13 @@ public class TUI_payFine extends JPanel implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        user u=new user();
         if (pay ==(JButton)e.getSource()) {
             if (Id.getText().length()==0)
                 message.setText("Empty");
             else {
-                userDetector D=new userDetector();
                 try {
-                    message.setText(D.payScan(Id.getText()));
+                    message.setText(u.payIt(Id.getText()));
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

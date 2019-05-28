@@ -5,7 +5,7 @@ import staff.SUI;
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import staff.TUI_monitor;
-import staff.TUI_payFine;
+import staff.TUI_pay_fine;
 import staff.TUI_register;
 /**
  * This class is used to show the GUI
@@ -82,7 +82,7 @@ public class UI extends JFrame {
         setSize(200, 300);
         this.setTitle("Borrow Or Return");
         this.remove(panel);
-        panel = new borrowOrreturn(stationId,userid);
+        panel = new borrowOrReturn(stationId,userid);
         this.add(panel);
         this.validate();
         repaint();
@@ -104,7 +104,7 @@ public class UI extends JFrame {
         setSize(300, 200);
         this.setTitle("Pay a fine");
         this.remove(panel);
-        panel = new TUI_payFine();
+        panel = new TUI_pay_fine();
         this.add(panel);
         this.validate();
         repaint();

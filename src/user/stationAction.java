@@ -22,14 +22,15 @@ import static user.station.*;
  */
 
 public class stationAction {
-    Thread thread=new Thread(new Mythread());
+    Thread thread=new Thread(new myThread());
     /**
-     * This method is used for showing the relative information after the user enter the station(to borrow the scooter)
+     * This method is used for showing the relative information after the user enter the station(to borrow the scooter or to return the scooter)
      * @param stationId In order to indicate which station it is
+     * @param condition Determine which layout method is based on the value of the condition.
      * @throws FileNotFoundException As we need pictures here to show more obviously
      */
 
-    public void bosStationLayout(int stationId) throws FileNotFoundException {
+    public void StationLayout(int stationId,int condition) throws FileNotFoundException {
         message.setText("<html>please<br>pick<br>up<br>scooter</html>");
         int flag = 0;
         Scanner scanner = new Scanner(new FileInputStream(station[stationId-1]+".txt"));
@@ -39,53 +40,33 @@ public class stationAction {
             if (flag % 2 == 0&&!"0".equals(str)) {
                 scooter[flag / 2 - 1].setText(str);
                 //Put the corresponding picture on the location of the car.
-                ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/timg.jpeg");
+                ImageIcon ii = new ImageIcon("timg.jpeg");
                 ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
                 p[flag / 2 - 1].setIcon(ii);
             }
         }
         //Get the location of the car to be borrowed.
         for (int i=0;i<8;i++){
-            if (!scooter[i].getText().equals("Empty")){
-                userpos=i;
-                lock[i].setText("Lock on");
-                light[i].setText("Flash on");
-                break;
+            if(condition==1) {
+                if (!scooter[i].getText().equals("Empty")) {
+                    userpos = i;
+                    lock[i].setText("Lock on");
+                    light[i].setText("Flash on");
+                    break;
+                }
+            }
+            else {
+                if (scooter[i].getText().equals("Empty")) {
+                    userpos = i;
+                    lock[i].setText("Lock on");
+                    light[i].setText("Flash on");
+                    break;
+                }
             }
         }
         thread.start();
     }
-    /**
-     * This method is used for showing the relative information after the user enter the station(to return the scooter)
-     * @param stationId In order to indicate which station it is
-     * @throws FileNotFoundException As we need pictures here to show more obviously
-     */
 
-    public void retStationLayout(int stationId) throws FileNotFoundException {
-        message.setText("<html>please<br>return<br>your<br>scooter</html>");
-        int flag = 0;
-        Scanner scanner = new Scanner(new FileInputStream(station[stationId-1]+".txt"));
-        while (scanner.hasNext()) {
-            String str = scanner.next();
-            flag++;
-            if (flag % 2 == 0&&!"0".equals(str)) {
-                scooter[flag / 2 - 1].setText(str);
-                ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/timg.jpeg");
-                ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
-                p[flag/2-1].setIcon(ii);
-            }
-        }
-        //Get the location of the car to be returned.
-        for (int i=0;i<8;i++) {
-            if (scooter[i].getText().equals("Empty")) {
-                userpos = i;
-                lock[i].setText("Lock on");
-                light[i].setText("Flash on");
-                break;
-            }
-        }
-        thread.start();
-    }
     /**
      * This method is used for showing the relative information after the user do some operation in the station(to borrow the scooter)
      * @param userId To indicate which user is do the operation
@@ -94,12 +75,12 @@ public class stationAction {
 
     public void bosPerform(String userId,int stationId){
         //start the count down
-        Mythread mt=new Mythread();
+        myThread mt=new myThread();
         mt.cancel();
         //Change layout information
         lock[userpos].setText("Lock off");
         light[userpos].setText("Flash off");
-        ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/111.png");
+        ImageIcon ii = new ImageIcon("111.png");
         ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
         p[userpos].setIcon(ii);
         light[userpos].setForeground(Color.BLACK);
@@ -107,11 +88,11 @@ public class stationAction {
         scooter[userpos].setText("Empty");
         //Make the appropriate modifications to the documents.
         try {
-            new write_usage_info(station[stationId-1],userId,"borrow",df.format(new Date()),borrowID);
+            new writeUsageInfo(station[stationId-1],userId,"borrow",df.format(new Date()),borrowID);
             userChangeCondi t=new userChangeCondi();
             stationChangeCondi t1=new stationChangeCondi();
-            t.borUserCondi(userId);
-            t1.borPosCond(borrowID,station[stationId-1]+".txt");
+            t.UserCondi(userId,1);
+            t1.PosCond(borrowID,station[stationId-1]+".txt",1);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -125,7 +106,7 @@ public class stationAction {
 
     public void retPerform(String userId,int stationId){
         //Cancel the countdown.
-        Mythread mt=new Mythread();
+        myThread mt=new myThread();
         mt.cancel();
         //Calculate the user's usage time.
         double min;
@@ -153,7 +134,7 @@ public class stationAction {
         //Change layout information
         lock[userpos].setText("Lock off");
         light[userpos].setText("Flash off");
-        ImageIcon ii = new ImageIcon("/Users/zongxuanfan/IdeaProjects/fancy/timg.jpeg");
+        ImageIcon ii = new ImageIcon("timg.jpeg");
         ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
         p[userpos].setIcon(ii);
         light[userpos].setForeground(Color.BLACK);
@@ -167,11 +148,11 @@ public class stationAction {
         scooter[userpos].setText(borrowID);
         //Make the appropriate modifications to the documents.
         try {
-            new write_history_info(station[stationId-1],userId,"return",df.format(new Date()),borrowID);
+            new writeHistoryInfo(station[stationId-1],userId,"return",df.format(new Date()),borrowID);
             userChangeCondi t2=new userChangeCondi();
             stationChangeCondi t1=new stationChangeCondi();
-            t2.retUserCondi(userId);
-            t1.retPosCond(borrowID,station[stationId-1]+".txt");
+            t2.UserCondi(userId,0);
+            t1.PosCond(borrowID,station[stationId-1]+".txt",0);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

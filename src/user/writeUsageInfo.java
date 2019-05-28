@@ -2,7 +2,6 @@ package user;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import IOtimer.stationChangeCondi;
 
 /**
  * This class is used to record history information
@@ -11,7 +10,7 @@ import IOtimer.stationChangeCondi;
  * @author group 107
  * @version 1.0
  */
-public class write_history_info {
+public class writeUsageInfo {
     /**
      * Use the constructor to perform a file write operation.
      * @param stationId Indicate the station which the user choose
@@ -19,17 +18,15 @@ public class write_history_info {
      * @param cond Indicate whether the user is borrow or lend the car
      * @param time Indicate the time that the user borrow or lend the car
      * @param scooterId Indicate the ID of the scooter which the user borrow or lend
-     * @throws IOException Write the history information into the  history.txt
+     * @throws IOException Write the history information into the  usage_information.txt
      */
-    public write_history_info(String stationId,String userId,String cond,String time,String scooterId) throws IOException {
-        FileWriter fw = new FileWriter("history.txt",true);
-        stationChangeCondi cc=new stationChangeCondi();
-        fw.write(cc.deleteLine(userId)+"\n");
-        fw.write(stationId+" ");
-        fw.write(userId+" ");
-        fw.write(cond+" ");
-        fw.write(time+" ");
-        fw.write(scooterId+"\n");
+    public writeUsageInfo(String stationId,String userId,String cond,String time,String scooterId) throws IOException {
+        FileWriter fw = new FileWriter("usage_information.txt", true);
+        fw.write(stationId + " ");
+        fw.write(userId + " ");
+        fw.write(cond + " ");
+        fw.write(time + " ");
+        fw.write(scooterId + "\n");
         fw.close();
     }
 }

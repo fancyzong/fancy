@@ -31,6 +31,9 @@ public class station extends JPanel implements ActionListener {
     static String station[]={"Library","Village_Shop","Information_Teaching_Laboratories"};
     static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
     stationAction sa=new stationAction();
+    retureUser ru=new retureUser();
+    borrowUser bu=new borrowUser();
+    stationEntity se;
     /**
      * This method is used for showing the situation of a specific station
      * @param stationId In order to indicate which station it is showing about
@@ -44,6 +47,7 @@ public class station extends JPanel implements ActionListener {
         this.stationId = stationId;
         this.userId = userId;
         this.bor=bor;
+        se=new stationEntity(stationId,bor);
         this.setLayout(new GridLayout(1, 9));
         position[0] = new JPanel();
         position[0].setLayout(new GridLayout(2, 1));
@@ -70,11 +74,11 @@ public class station extends JPanel implements ActionListener {
             lock[i - 1].addActionListener(this);
             this.add(position[i]);
         }
-        if (bor==true){
-            sa.bosStationLayout(stationId);
+        if (se.getforWhat()==true){
+            bu.borLayout(se.getStationId());
         }
         else{
-            sa.retStationLayout(stationId);
+            ru.retLayout(se.getStationId());
         }
     }
     /**
@@ -82,11 +86,11 @@ public class station extends JPanel implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (lock[userpos]==(JButton)e.getSource()&&bor==true&&countdown>=0){
-            sa.bosPerform(userId,stationId);
+        if (lock[userpos]==(JButton)e.getSource()&&se.getforWhat()==true&&countdown>=0){
+            bu.borrowScooter(userId,se.getStationId());
         }
-        if (lock[userpos]==(JButton)e.getSource()&&bor==false&&countdown>=0){
-            sa.retPerform(userId,stationId);
+        if (lock[userpos]==(JButton)e.getSource()&&se.getforWhat()==false&&countdown>=0){
+            ru.returnScooter(userId,se.getStationId());
         }
         if (goout==(JButton)e.getSource()){
             swich.stationSelect();

@@ -20,22 +20,38 @@ public class stationChangeCondi {
      * Modify the data in the station file to mark the bicycle that the user borrowed.
      * @param scootId A search condition that determines the location of the marker.
      * @param station The retrieval condition is used to determine which station file to modify.
+     * @param condition Determine which retrieval method is based on the value of the condition.
      * @throws IOException Modify the data of station file.
      */
-    public void borPosCond(String scootId,String station) throws IOException {
-        File file=new File("/Users/zongxuanfan/IdeaProjects/fancy/"+station);
+    public void PosCond(String scootId,String station,int condition) throws IOException {
+        int number=0;
+        File file=new File(station);
         FileInputStream fis = new FileInputStream(file);
         InputStreamReader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);
         StringBuffer buf = new StringBuffer();
         while ((str=br.readLine())!=null){
-            int flag=str.indexOf(scootId);
-            if (flag!=-1){
-                String temp=str.replace("true "+scootId,"false 0");
-                buf.append(temp+"\r\n");
+            if (condition==1) {
+                int flag = str.indexOf(scootId);
+                if (flag != -1) {
+                    String temp = str.replace("true " + scootId, "false 0");
+                    buf.append(temp + "\r\n");
+                } else
+                    buf.append(str + "\r\n");
             }
-            else
-                buf.append(str+"\r\n");
+            else {
+                if ("false 0".equals(str)){
+                    number++;
+                    if (number==1) {
+                        String temp = str.replace("false 0", "true " + scootId);
+                        buf.append(temp + "\r\n");
+                    }
+                    else
+                        buf.append(str+"\r\n");
+                }
+                else
+                    buf.append(str+"\r\n");
+            }
         }
         br.close();
         FileOutputStream fos = new FileOutputStream(file);
@@ -45,40 +61,7 @@ public class stationChangeCondi {
         pw.close();
     }
 
-    /**
-     * This method is called when the user returns a bicycle.
-     * Modify the data in the station file to eliminate the marking of the borrowed bicycle.
-     * @param scootId A search condition that determines the location of the marker.
-     * @param station The retrieval condition is used to determine which station file to modify
-     * @throws IOException Modify the data of station file.
-     */
-    public void retPosCond(String scootId,String station) throws IOException {
-        int number=0;
-        File file=new File("/Users/zongxuanfan/IdeaProjects/fancy/"+station);
-        FileInputStream fis = new FileInputStream(file);
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(isr);
-        StringBuffer buf = new StringBuffer();
-        while ((str=br.readLine())!=null){
-            if ("false 0".equals(str)){
-                number++;
-                if (number==1) {
-                    String temp = str.replace("false 0", "true " + scootId);
-                    buf.append(temp + "\r\n");
-                }
-                else
-                    buf.append(str+"\r\n");
-            }
-            else
-                buf.append(str+"\r\n");
-        }
-        br.close();
-        FileOutputStream fos = new FileOutputStream(file);
-        PrintWriter pw = new PrintWriter(fos);
-        pw.write(buf.toString().toCharArray());
-        pw.flush();
-        pw.close();
-    }
+
 
     /**
      * This method is called when the user returns a bicycle.
@@ -87,7 +70,7 @@ public class stationChangeCondi {
      * @throws IOException Delete the data of usage_information
      */
     public String deleteLine(String userId) throws IOException {
-        File file=new File("/Users/zongxuanfan/IdeaProjects/fancy/usage_information.txt");
+        File file=new File("usage_information.txt");
         FileInputStream fis = new FileInputStream(file);
         InputStreamReader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);

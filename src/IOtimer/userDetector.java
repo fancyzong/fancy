@@ -26,8 +26,6 @@ public class userDetector {
             while (scanner.hasNext()) {
                 String str = scanner.next();
                 flag++;
-                //System.out.println(str+flag%5);
-                //System.out.println(id);
                 if (flag % 6 == 2 && id.equals(str))
                     info = "ID already exist";
             }
@@ -38,12 +36,14 @@ public class userDetector {
     }
 
     /**
-     * This method is called when a user want to enter a station. It aimed to check if the user is registered and legal
+     * This method is called when a user want to enter a station or when the user want to pay the fine.
+     * It aimed to check if the user is registered and legal
      * @param id It is used for searching the relative information
+     * @param condition Determine which retrieval method is based on the value of the condition.
      * @return  In order to indicate the user's next operation
      * @throws FileNotFoundException As we need to search the user_information.txt
      */
-    public String useridScan(String id) throws FileNotFoundException {
+    public String Scan(String id,int condition) throws IOException {
         if(id.length()!=0) {
             int flag = 0;
             int cond=0;
@@ -52,14 +52,24 @@ public class userDetector {
             while (scanner.hasNext()) {
                 String str = scanner.next();
                 flag++;
-                //System.out.println(str+flag%5);
-                //System.out.println(id);
                 if (flag % 6 == 2 && id.equals(str))
-                    cond=flag;
-                if (flag-cond==2&&"1".equals(str)&&cond!=0)
-                    info = "ID  exist";
-                if (flag-cond==2&&"0".equals(str)&&cond!=0)
-                    info = "Your account is disabled";
+                    cond = flag;
+                if (condition==1) {
+                    if (flag - cond == 2 && "1".equals(str) && cond != 0)
+                        info = "ID  exist";
+                    if (flag - cond == 2 && "0".equals(str) && cond != 0)
+                        info = "Your account is disabled";
+                }
+                else {
+                    if (cond!=0)
+                        info="You don't need to pay";
+                    if (flag-cond==2&&"0".equals(str)&&cond!=0){
+                        userChangeCondi change=new userChangeCondi();
+                        change.Fine(id,0);
+                        info="Successful";
+                        break;
+                    }
+                }
             }
             return info;
         }
@@ -87,37 +97,6 @@ public class userDetector {
                     cond=false;
             }
             return cond;
-    }
-
-    /**
-     * This method is called when the user want to pay the fine
-     * @param id In order to search the specific information from the file
-     * @return  In order to indicate the user how the current situation(whether successful or not)
-     * @throws IOException As we need to search the user_information.txt
-     */
-    public String payScan(String id) throws IOException {
-            int flag = 0;
-            int cond=0;
-            String info = "ID not exist";
-            Scanner scanner = new Scanner(new FileInputStream("user_information.txt"));
-            while (scanner.hasNext()) {
-                String str = scanner.next();
-                flag++;
-                //System.out.println(str+flag%5);
-                //System.out.println(id);
-                if (flag % 6 == 2 && id.equals(str) )
-                    cond = flag;
-                if (cond!=0)
-                    info="You don't need to pay";
-                if (flag-cond==2&&"0".equals(str)&&cond!=0){
-                    userChangeCondi change=new userChangeCondi();
-                    change.getFine(id);
-                    info="Successful";
-                    break;
-                }
-            }
-            return info;
-
     }
 
     /**

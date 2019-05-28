@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static staff.Display_station.scooters;
+import static staff.displayStation.scooters;
 
 /**
  * The generate layer.
@@ -14,7 +14,7 @@ import static staff.Display_station.scooters;
  * @author group 107
  * @version 4.0
  */
-public class fullfill {
+public class fulfil {
     /**
      * This method is called when the manager want to view the specific information of the user(what the chart is to be formed depends on the choice of the manager)
      * @param col This is the column of the chart needs
@@ -70,5 +70,37 @@ public class fullfill {
             e.printStackTrace();
         }
         return jp;
+    }
+
+    /**
+     *
+     * @param table
+     * @param title
+     * @return
+     */
+    public JPanel setTable(JTable table,String title){
+        JLabel tt1=new JLabel(title);
+        JPanel panel = new JPanel(new BorderLayout());
+        table.setForeground(Color.BLACK);                   // font color
+        table.setFont(new Font(null, Font.PLAIN, 14));      // Font style
+        table.setSelectionForeground(Color.DARK_GRAY);      // font color after being selected
+        table.setSelectionBackground(Color.LIGHT_GRAY);     // font background after being selected
+        table.setGridColor(Color.GRAY);                     // Grid color
+        // Setting header
+        table.getTableHeader().setFont(new Font(null, Font.BOLD, 14));  //Set the header name font style
+        table.getTableHeader().setForeground(Color.RED);                // Set the header name font color
+        table.getTableHeader().setResizingAllowed(false);               // Settings do not allow manual change of column width
+        table.getTableHeader().setReorderingAllowed(false);             // Setting does not allow dragging to reorder columns
+        // Set line height
+        table.setRowHeight(30);
+        // The first column width is set to 40
+        table.getColumnModel().getColumn(0).setPreferredWidth(70);
+        // Set the size of the scroll panel viewport (more than the row data of this size, you need to drag the scroll bar to see)
+        table.setPreferredScrollableViewportSize(new Dimension(600, 200));
+        // Place the table in the scroll panel (the header will be automatically added to the top of the scroll panel)
+        JScrollPane scrollPane = new JScrollPane(table);
+        panel.add(BorderLayout.CENTER,scrollPane);
+        panel.add(BorderLayout.NORTH,tt1);
+        return panel;
     }
 }

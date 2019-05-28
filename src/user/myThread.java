@@ -10,7 +10,7 @@ import static user.station.*;
  */
 
 
-public class Mythread implements Runnable {
+public class myThread implements Runnable {
     /**
      * This method is used for start to count down
      */

@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author group 107
  * @version 1.0
  */
-public class traditionTest {
+public class traditionalTest {
     public static void main(String[] args) throws IOException{
         JFrame jf=new JFrame();
         jf.setLocationRelativeTo(null);
@@ -22,6 +22,6 @@ public class traditionTest {
         jf.add(panel);
 
         userDetector judge = new userDetector();
-        System.out.println(judge.useridScan("111111111"));
+        System.out.println(judge.Scan("111111111",1));
     }
 }
