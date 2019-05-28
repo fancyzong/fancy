@@ -160,7 +160,7 @@ public class stationAction {
         //Get the user's borrowing time.
         otherDetector det=new otherDetector();
         try {
-            borrowID=det.readFromLast(userId);
+            borrowID=det.getMessage(userId,4);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

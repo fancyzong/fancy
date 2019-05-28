@@ -55,45 +55,12 @@ public class otherDetector {
     }
 
     /**
-     * It is called when the user returns the car, and finds the user's scooter ID, which is used to indicate in the station GUI
-     * @param userId search condition,indicates which user’s scooter ID is to be checked.
-     * @return Indicate the user’s scooter ID
-     * @throws IOException Read information from usage_information.txt file
-     */
-    public  String readFromLast(String userId) throws IOException {
-        File f=new File("/Users/zongxuanfan/IdeaProjects/fancy/usage_information.txt");
-        RandomAccessFile raf=new RandomAccessFile(f,"r");
-        long start=raf.getFilePointer();
-        long end=start+raf.length()-1;
-        String line="";
-        raf.seek(end);
-        int c=-1;
-        String borrowId="";
-        while(end>start){
-            end--;
-            raf.seek(end);
-            c=raf.read();
-            if (c=='\n'||c=='\r'||end==0){
-                raf.seek(end+1);
-                line=raf.readLine();
-                if (line.indexOf(userId)!=-1){
-                    String[] linearray=line.split(" ");
-                    borrowId=linearray[linearray.length-1];
-                    break;
-                }
-            }
-
-        }
-        return borrowId;
-    }
-
-    /**
      * It is called when the user returns the car, and finds the user's borrowing time, which is used to calculate the user's car time.
      * @param userId Search condition,indicates which user’s borrowing time is to be checked.
      * @return Indicate the user’s borrowing time
      * @throws IOException Read information from usage_information.txt file
      */
-    public String getTime(String userId) throws IOException {
+    public String getMessage(String userId,int position) throws IOException {
         BufferedReader br;
         FileReader fr = new FileReader("usage_information.txt");
         br = new BufferedReader(fr);
@@ -102,7 +69,7 @@ public class otherDetector {
         while ((str = br.readLine()) != null) {
             if (str.indexOf(userId) != -1) {
                 String[] linearray = str.split(" ");
-                temp = linearray[3];
+                temp = linearray[position];
                 break;
             }
         }

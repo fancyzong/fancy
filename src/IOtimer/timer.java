@@ -34,7 +34,7 @@ public class timer {
      */
     public boolean judge(String endTime) throws IOException, ParseException {
         Date now = df.parse(endTime);
-        Date date=df.parse(detector.getTime(userId));
+        Date date=df.parse(detector.getMessage(userId,3));
         min=(now.getTime()-date.getTime())*1.0/1000/60;
         System.out.println(min+"\n");
         if (min>1) {
