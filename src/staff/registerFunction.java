@@ -75,7 +75,7 @@ public class registerFunction {
     }
 
     /**
-     *
+     *Clear the content of textfield.
      */
     public void clear(){
         text_id.setText("");
