@@ -10,10 +10,10 @@ import java.io.IOException;
  * @version 4.0
  */
 public class displayStation  extends JFrame {
-    static JButton[] scooters=new JButton[8];
     /**
      * Use the constructor to lay out the frame.
      * @param  name Decide which station to view.
+     * @throws IOException read station file
      */
     public displayStation(String name) throws IOException {
         this.setLocationRelativeTo(null);

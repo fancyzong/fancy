@@ -29,4 +29,7 @@ public class writeUsageInfo {
         fw.write(scooterId + "\n");
         fw.close();
     }
+
+
+
 }

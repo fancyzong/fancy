@@ -4,5 +4,4 @@ ZhaoHongfei 161188348 zhaohongfei@bupt.edu.cn 1 true 0
 FanZongxuan 161188586 2016213551@bupt.edu.cn 1 true 0
 PangJing 151006700 pangjing@bupt.edu.cn 1 true 0 
 ZhanLang 161188117 stillwater@bupt.edu.cn 1 true 0 
-GuoHaoran 161187763 2016213465@bupt.edu.cn 1 true 0
-
+GuoHaoran 161187763 2016213465@bupt.edu.cn 1 true 0.0 

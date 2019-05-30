@@ -8,9 +8,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static manager.displayStation.scooters;
-import static user.stationSelect.stationName;
-
 /**
  * The generate layer.
  * This class is mainly to generate a chart to show the interested information of user to manager
@@ -43,6 +40,7 @@ public class fulfil {
      * The information reading layer is called when the station information needs to be viewed.
      * @param name indicate which station i want to view.
      * @return Generate corresponding modules based on the information of the station.
+     * @throws IOException read station file
      */
     public JPanel fullfillstation(String name) throws IOException {
         otherDetector od=new otherDetector();

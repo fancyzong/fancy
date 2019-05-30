@@ -101,11 +101,11 @@ public class stationChangeCondi {
             br1 = new BufferedReader(fr);
             String str;
             while ((str = br1.readLine()) != null) {
-                String[] strarray = str.split(" ");
-                al.add(strarray[1]);
-                al.add(strarray[2]);
-                //System.out.println(str);
-                if (!str.equals("")) {
+                if(!str.equals("")) {
+                    String[] strarray = str.split(" ");
+                    al.add(strarray[1]);
+                    al.add(strarray[2]);
+                    //System.out.println(str);
                     FileWriter fw = new FileWriter(strarray[2] + ".txt");
                     fw.write("");
                     fw.flush();
@@ -130,7 +130,6 @@ public class stationChangeCondi {
         try (FileReader fr = new FileReader("history.txt")) {
             br = new BufferedReader(fr);
             String str;
-            String temp;
             while ((str = br.readLine()) != null) {
                 String[] strarray = str.split(" ");
                 for (int i = 0; i < al.size(); i++) {
