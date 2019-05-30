@@ -18,7 +18,6 @@ public class stationEntity {
     public stationEntity(int stationId,boolean forWhat){
         this.stationId=stationId;
         this.forWhat=forWhat;
-        System.out.println(forWhat);
     }
 
     public int getStationId() {

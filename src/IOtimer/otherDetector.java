@@ -65,7 +65,7 @@ public class otherDetector {
      * The size of the station (how many cars can be accommodated) is obtained by detecting the number of lines in the file.
      * @param file indicate which file i want to read
      * @return the size of station
-     * @throws IOException
+     * @throws IOException read station file
      */
     public int getstationsize(String file) throws IOException {
         BufferedReader br;
