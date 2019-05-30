@@ -15,7 +15,31 @@ public class user {
     private String email;
     private String name;
     private String ID;
+    /**
+     * This method is called when the user want to pay fine
+     * @param id This is the user's ID
+     * @return This a String as the return
+     * @throws IOException As this method needs to do operation to a file
+     */
 
+    public String payIt(String id) throws IOException {
+        userDetector D=new userDetector();
+        return D.Scan(id,0);
+    }
+
+    /**
+     * Perform user's card swipe behavior.
+     */
+    public void scanCard(){
+        changer.stationSelect();
+    }
+
+    /**
+     * Perform user's registration behavior.
+     */
+    public void register(){
+        changer.register();
+    }
     /**
      * This is a constructor to construct user object
      * @param email This is one of the parameters of the user's attribute
@@ -44,29 +68,5 @@ public class user {
         return name;
     }
 
-    /**
-     * This method is called when the user want to pay fine
-     * @param id This is the user's ID
-     * @return This a String as the return
-     * @throws IOException As this method needs to do operation to a file
-     */
 
-    public String payIt(String id) throws IOException {
-        userDetector D=new userDetector();
-        return D.Scan(id,0);
-    }
-
-    /**
-     * Perform user's card swipe behavior.
-     */
-    public void scanCard(){
-        changer.stationSelect();
-    }
-
-    /**
-     * Perform user's registration behavior.
-     */
-    public void register(){
-        changer.register();
-    }
 }

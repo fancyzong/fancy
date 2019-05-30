@@ -11,7 +11,7 @@ import java.io.*;
  */
 public class userChangeCondi {
     String str="";
-
+    otherDetector od=new otherDetector();
     /**
      * This method is called after the user picked up(borrow) a scooter successfully in order to change the user's situation that indicates the user owns a scooter now
      * @param userId A search condition to find the specific line of the user's information in the file
@@ -20,10 +20,8 @@ public class userChangeCondi {
      */
     public void UserCondi(String userId,int condition) throws IOException {
         String temp;
+        BufferedReader br=od.configure();
         File file=new File("user_information.txt");
-        FileInputStream fis = new FileInputStream(file);
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(isr);
         StringBuffer buf = new StringBuffer();
         while ((str=br.readLine())!=null){
             int flag=str.indexOf(userId);
@@ -53,10 +51,8 @@ public class userChangeCondi {
      * @throws IOException In order to change the specific user's "fine status" in the file
      */
     public void Fine(String userId,int condition) throws IOException {
+        BufferedReader br=od.configure();
         File file=new File("user_information.txt");
-        FileInputStream fis = new FileInputStream(file);
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(isr);
         StringBuffer buf = new StringBuffer();
         String temp=new String();
         temp="";
@@ -92,10 +88,8 @@ public class userChangeCondi {
      * @throws IOException In order to the change the "accumulation time" of the user
      */
     public boolean addAcc(String userId,double min) throws IOException {
+        BufferedReader br=od.configure();
         File file=new File("user_information.txt");
-        FileInputStream fis = new FileInputStream(file);
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(isr);
         StringBuffer buf = new StringBuffer();
         String temp=new String();
         boolean flag=true;
@@ -111,7 +105,7 @@ public class userChangeCondi {
                     continue;
                 }
                 linearray[linearray.length-1]=String.valueOf(Double.valueOf(linearray[linearray.length-1])+min);
-                if (Double.valueOf(linearray[linearray.length-1])>3) {
+                if (Double.valueOf(linearray[linearray.length-1])>120) {
                     linearray[linearray.length - 1] = "0";
                     flag=false;
                 }
@@ -136,10 +130,8 @@ public class userChangeCondi {
      * @throws IOException I order to clear the "accumulation time" for all user in the file
      */
     public void initAcc() throws IOException {
-        File file = new File("user_information.txt");
-        FileInputStream fis = new FileInputStream(file);
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(isr);
+        BufferedReader br=od.configure();
+        File file=new File("user_information.txt");
         StringBuffer buf = new StringBuffer();
         String temp = new String();
         while ((str = br.readLine()) != null) {

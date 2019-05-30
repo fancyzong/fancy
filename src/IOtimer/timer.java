@@ -37,7 +37,7 @@ public class timer {
         Date date=df.parse(detector.getMessage(userId,3));
         min=(now.getTime()-date.getTime())*1.0/1000/60;
         System.out.println(min+"\n");
-        if (min>1) {
+        if (min>30) {
             change.Fine(userId,1);
             System.out.println("Exceed time limit");
             return false;

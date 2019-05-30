@@ -15,7 +15,7 @@ import user.*;
  * @author group 107
  * @version 4.0
  */
-public class TUI_register extends JPanel implements ActionListener,KeyListener {
+public class TUI_register extends JPanel implements ActionListener {
     JButton check=new JButton("Check");
     JButton clear=new JButton("Clear");
     JButton back=new JButton("Back");
@@ -75,14 +75,5 @@ public class TUI_register extends JPanel implements ActionListener,KeyListener {
         else {
             swich.staff();
         }
-    }
-    public void keyTyped(KeyEvent e){
-
-    }
-    public void keyPressed(KeyEvent e){
-
-    }
-    public void keyReleased(KeyEvent e){
-
     }
 }

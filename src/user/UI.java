@@ -17,6 +17,9 @@ import manager.TUI_register;
 public class UI extends JFrame {
     JPanel panel=new JPanel();
 
+    /**
+     * The interface to select the user's identity.
+     */
     public void init(){
         this.setLocationRelativeTo(null);
         this.setTitle("Scooter Sharing System");
@@ -26,6 +29,10 @@ public class UI extends JFrame {
         panel=new FUI();
         this.add(panel);
     }
+
+    /**
+     * Remove the previous interface and enter the management interface.
+     */
     public void staff(){
         setSize(350,300);
         this.setTitle("Staff");
@@ -35,6 +42,10 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter an interface that detects the user and the station.
+     */
     public void monitor(){
         setSize(400,300);
         this.setTitle("Monitor");
@@ -44,6 +55,10 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the interface where the administrator registers user information.
+     */
     public void register(){
         this.setSize(470,300);
         this.setTitle("Register");
@@ -53,6 +68,10 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the beginning interface.
+     */
     public void FUI(){
         setSize(200,300);
         this.setTitle("Scooter Sharing System");
@@ -62,6 +81,10 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the interface to select the station.
+     */
     public void stationSelect(){
         setSize(200,400);
         this.setTitle("Station selection");
@@ -71,6 +94,11 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the interface inputting user ID.
+     * @param stationId indicate which station we select.
+     */
     public void scanCard(int stationId) {
         setSize(300, 200);
         this.setTitle("Scan Card");
@@ -80,6 +108,12 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the interface judging the condition of user and station.
+     * @param stationId indicate which station we select.
+     * @param userid user ID
+     */
     public void bor(int stationId,String userid) {
         setSize(200, 300);
         this.setTitle("Borrow Or Return");
@@ -89,6 +123,14 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the interface borrowing or returning a scooter.
+     * @param stationId indicate which station we select.
+     * @param userid user ID
+     * @param cond Judging whether to borrow or return a car.
+     * @throws IOException manny operation with file.
+     */
     public void stationBor(int stationId,String userid,boolean cond) throws IOException {
         setLocation(300,300);
         setSize(800, 300);
@@ -103,6 +145,10 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
+
+    /**
+     * Remove the previous interface and enter the interface provided to pay fine for exceeding specific time.
+     */
     public void payFine() {
         setSize(300, 200);
         this.setTitle("Pay a fine");

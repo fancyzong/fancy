@@ -1,7 +1,7 @@
-LvSimeng 161187899 lvsimeng@bupt.edu.cn 1 true 0 
-SuYuting 161189354 suyuting2016@bupt.edu.cn 1 true 0 
-ZhaoHongfei 161188348 zhaohongfei@bupt.edu.cn 1 true 0 
-FanZongxuan 161188586 2016213551@bupt.edu.cn 1 true 0
-PangJing 151006700 pangjing@bupt.edu.cn 1 true 0 
-ZhanLang 161188117 stillwater@bupt.edu.cn 1 true 0 
-GuoHaoran 161187763 2016213465@bupt.edu.cn 1 true 0.0 
+LvSimeng 161187899 jp161187899@qmul.ac.uk 1 true 0
+SuYuting 161189354 jp161189354@qmul.ac.uk 1 true 0
+ZhaoHongfei 161188348 jp161188348@qmul.ac.uk 1 true 0
+FanZongxuan 161188586 jp161188586@qmul.ac.uk 1 true 0
+PangJing 151006700 jp151006700@qmul.ac.uk 1 true 0
+ZhanLang 161188117 jp161188117@qmul.ac.uk 1 true 0
+GuoHaoran 161187763 jp161187763@qmul.ac.uk 1 true 0.0

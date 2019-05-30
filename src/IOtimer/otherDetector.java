@@ -77,4 +77,17 @@ public class otherDetector {
         }
         return size;
     }
+
+    /**
+     * configure bufferreader for user_information.txt file
+     * @return the BufferReader which configure finished
+     * @throws FileNotFoundException use the file.
+     */
+    public BufferedReader configure() throws FileNotFoundException {
+        File file=new File("user_information.txt");
+        FileInputStream fis = new FileInputStream(file);
+        InputStreamReader isr = new InputStreamReader(fis);
+        BufferedReader br = new BufferedReader(isr);
+        return br;
+    }
 }
