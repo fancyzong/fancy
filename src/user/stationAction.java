@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 import static user.station.*;
+import static user.stationSelect.stationName;
+
 /**
  * This is used for react the user's operation after entering the station
  * @author group 107
@@ -22,50 +24,6 @@ import static user.station.*;
  */
 
 public class stationAction {
-    Thread thread=new Thread(new myThread());
-    /**
-     * This method is used for showing the relative information after the user enter the station(to borrow the scooter or to return the scooter)
-     * @param stationId In order to indicate which station it is
-     * @param condition Determine which layout method is based on the value of the condition.
-     * @throws FileNotFoundException As we need pictures here to show more obviously
-     */
-
-    public void StationLayout(int stationId,int condition) throws FileNotFoundException {
-        message.setText("<html>please<br>pick<br>up<br>scooter</html>");
-        int flag = 0;
-        Scanner scanner = new Scanner(new FileInputStream(station[stationId-1]+".txt"));
-        while (scanner.hasNext()) {
-            String str = scanner.next();
-            flag++;
-            if (flag % 2 == 0&&!"0".equals(str)) {
-                scooter[flag / 2 - 1].setText(str);
-                //Put the corresponding picture on the location of the car.
-                ImageIcon ii = new ImageIcon("timg.jpeg");
-                ii.setImage(ii.getImage().getScaledInstance(50, 50,  Image.SCALE_DEFAULT));
-                p[flag / 2 - 1].setIcon(ii);
-            }
-        }
-        //Get the location of the car to be borrowed.
-        for (int i=0;i<8;i++){
-            if(condition==1) {
-                if (!scooter[i].getText().equals("Empty")) {
-                    userpos = i;
-                    lock[i].setText("Lock on");
-                    light[i].setText("Flash on");
-                    break;
-                }
-            }
-            else {
-                if (scooter[i].getText().equals("Empty")) {
-                    userpos = i;
-                    lock[i].setText("Lock on");
-                    light[i].setText("Flash on");
-                    break;
-                }
-            }
-        }
-        thread.start();
-    }
 
     /**
      * This method is used for showing the relative information after the user do some operation in the station(to borrow the scooter)
@@ -88,11 +46,11 @@ public class stationAction {
         scooter[userpos].setText("Empty");
         //Make the appropriate modifications to the documents.
         try {
-            new writeUsageInfo(station[stationId-1],userId,"borrow",df.format(new Date()),borrowID);
+            new writeUsageInfo(stationName[stationId-1],userId,"borrow",df.format(new Date()),borrowID);
             userChangeCondi t=new userChangeCondi();
             stationChangeCondi t1=new stationChangeCondi();
             t.UserCondi(userId,1);
-            t1.PosCond(borrowID,station[stationId-1]+".txt",1);
+            t1.PosCond(borrowID,stationName[stationId-1]+".txt",1);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -148,11 +106,11 @@ public class stationAction {
         scooter[userpos].setText(borrowID);
         //Make the appropriate modifications to the documents.
         try {
-            new writeHistoryInfo(station[stationId-1],userId,"return",df.format(new Date()),borrowID);
+            new writeHistoryInfo(stationName[stationId-1],userId,"return",df.format(new Date()),borrowID);
             userChangeCondi t2=new userChangeCondi();
             stationChangeCondi t1=new stationChangeCondi();
             t2.UserCondi(userId,0);
-            t1.PosCond(borrowID,station[stationId-1]+".txt",0);
+            t1.PosCond(borrowID,stationName[stationId-1]+".txt",0);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

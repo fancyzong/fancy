@@ -12,6 +12,7 @@ public class integationTest {
     public static UI test=new UI();
     /**
      * This main driver is used to start the whole system
+     * @param args It is not used here.
      */
 
     public static void main(String[] args){

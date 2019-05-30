@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
  * @author group 107
  * @version 4.0
  */
-public interface borInteface{
+public interface borInterface{
     public void borrowScooter(String userId, int stationId);
     public void borLayout(int stationId) throws FileNotFoundException;
 }

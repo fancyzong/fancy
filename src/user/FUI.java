@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
  * @version 1.0
  */
 public class FUI extends JPanel implements ActionListener {
+    user u=new user();
      JButton user=new JButton("User");
      JButton manager=new JButton("Manager");
      JLabel title=new JLabel("Who are you?",JLabel.CENTER);
@@ -37,7 +38,7 @@ public class FUI extends JPanel implements ActionListener {
             changer.staff();
         }
         if(user==(JButton)e.getSource()){
-            changer.stationSelect();
+            u.scanCard();
         }
     }
 }

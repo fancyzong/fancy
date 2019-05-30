@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
  * @author group 107
  * @version 4.0
  */
-public interface retInteface{
+public interface retInterface{
     public void returnScooter(String userId,int stationId);
     public void retLayout(int stationId) throws FileNotFoundException;
 }

@@ -3,10 +3,16 @@ package user;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * use TDD technology:Junit to test the function of stationAction class
+ * @author group 107
+ * @version 1.0
+ */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class stationActionTest {
+    setLayout setLayout=new setLayout();
     stationAction sa=new stationAction();
     UI changer=integationTest.test;
     @BeforeEach
@@ -28,25 +34,26 @@ class stationActionTest {
     public static void afterClass(){
         System.out.println("after class:end this class--------------");
     }
-
+    /**
+     * test the method bosPerform().
+     * @throws FileNotFoundException A series of operations on files.
+     */
+    @Order(1)
     @Test
-    void stationLayout() throws FileNotFoundException {
-        changer.stationBor(1,"161188586",true);
-        sa.StationLayout(1,1);
+    void bosPerform() throws IOException {
+        changer.stationBor(1,"161187763",true);
+        setLayout.StationLayout(1,1);
+        sa.bosPerform("161187763",1);
     }
+    /**
+     * test the method retPerform().
+     * @throws FileNotFoundException A series of operations on files.
+     */
+    @Order(2)
     @Test
-    void retPerform() throws FileNotFoundException {
+    void retPerform() throws IOException {
         changer.stationBor(1,"161187763",false);
-        sa.StationLayout(1,0);
+        setLayout.StationLayout(1,0);
         sa.retPerform("161187763",1);
     }
-
-    @Test
-    void bosPerform() throws FileNotFoundException {
-        changer.stationBor(3,"161187763",true);
-        sa.StationLayout(3,1);
-        sa.bosPerform("161187763",3);
-    }
-
-
 }

@@ -41,6 +41,7 @@ public class otherDetector {
     /**
      * It is called when we need some specific message,for example: finds the user's borrowing time, which is used to calculate the user's car time.
      * @param userId Search condition,indicates which user’s borrowing time is to be checked.
+     * @param position Determine the location of the target information.
      * @return Indicate the user’s borrowing time
      * @throws IOException Read information from usage_information.txt file
      */
@@ -58,5 +59,22 @@ public class otherDetector {
             }
         }
         return temp;
+    }
+
+    /**
+     * The size of the station (how many cars can be accommodated) is obtained by detecting the number of lines in the file.
+     * @param file indicate which file i want to read
+     * @return the size of station
+     * @throws IOException
+     */
+    public int getstationsize(String file) throws IOException {
+        BufferedReader br;
+        FileReader fr = new FileReader(file);
+        br = new BufferedReader(fr);
+        int size=0;
+        while(br.readLine()!=null){
+            size++;
+        }
+        return size;
     }
 }

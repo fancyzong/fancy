@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-import staff.*;
+import manager.*;
 
 /**
  * The time control layer, write some methods related to time calculation.

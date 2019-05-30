@@ -1,9 +1,8 @@
-aaa 111111111 sxw@exe 1 true 0 
-fwfwd 131211111 dcsc@ed 0 true 0 
-ded 111111511 dxde@swsew 1 true 0 
-scxs 111112121 csxs@ded 1 true 0 
-fzx 161188586 fzx@com 1 true 0 
-ghr 111111112 ghr@com 1 true 0 
-fzx 201621355 fzx@com 1 true 0 
-fdbg 222222222 sws@sx 1 true 0 
-guohr 161187763 gygy@cfgcgf 1 true 0 
+LvSimeng 161187899 lvsimeng@bupt.edu.cn 1 true 0 
+SuYuting 161189354 suyuting2016@bupt.edu.cn 1 true 0 
+ZhaoHongfei 161188348 zhaohongfei@bupt.edu.cn 1 true 0 
+FanZongxuan 161188586 2016213551@bupt.edu.cn 1 true 0
+PangJing 151006700 pangjing@bupt.edu.cn 1 true 0 
+ZhanLang 161188117 stillwater@bupt.edu.cn 1 true 0 
+GuoHaoran 161187763 2016213465@bupt.edu.cn 1 true 0
+

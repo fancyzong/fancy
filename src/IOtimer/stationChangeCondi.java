@@ -2,7 +2,7 @@ package IOtimer;
 
 import java.io.*;
 
-import static staff.TUI_send_report.al;
+import static manager.TUI_send_report.al;
 
 /**
  * The information modification layer.

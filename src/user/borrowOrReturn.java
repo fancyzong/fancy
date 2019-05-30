@@ -7,6 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static user.stationSelect.stationName;
 
 /**
  * The user will choose to return/borrow cars or go back  after select the station and scan their ID.
@@ -49,42 +52,16 @@ public class borrowOrReturn extends JPanel implements ActionListener {
             otherDetector judg2=new otherDetector();
             try {
                 if(judg1.userCondition(userid)==true){
-                    if(stationId==1){
-                        if (judg2.stationCondition("Library",1)==false)
+                        if (judg2.stationCondition(stationName[stationId-1],1)==false)
                             title.setText("No scooster");
                         else changer.stationBor(stationId,userid,true);
-
-                    }
-                    else if (stationId==2){
-                        if (judg2.stationCondition("Village_Shop",1)==false)
-                            title.setText("No scooster");
-                        else changer.stationBor(stationId,userid,true);
-                    }
-                    else if (stationId==3){
-                        if (judg2.stationCondition("Information_Teaching_Laboratories",1)==false)
-                            title.setText("No scooster");
-                        else changer.stationBor(stationId,userid,true);
-                    }
                 }
                 else {
-                    if(stationId==1){
-                        if (judg2.stationCondition("Library",0)==false)
+                        if (judg2.stationCondition(stationName[stationId - 1], 0) == false)
                             title.setText("No vacancy");
-                        else changer.stationBor(stationId,userid,false);
-
-                    }
-                    else if (stationId==2){
-                        if (judg2.stationCondition("Village_Shop",0)==false)
-                            title.setText("No vacancy");
-                        else changer.stationBor(stationId,userid,false);
-                    }
-                    else if (stationId==3){
-                        if (judg2.stationCondition("Information_Teaching_Laboratories",0)==false)
-                            title.setText("No vacancy");
-                        else changer.stationBor(stationId,userid,false);
-                    }
+                        else changer.stationBor(stationId, userid, false);
                 }
-            } catch (FileNotFoundException e1) {
+            } catch (IOException e1) {
                 e1.printStackTrace();
             }
         }

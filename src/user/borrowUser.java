@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
  * @author group 107
  * @version 4.0
  */
-public class borrowUser extends user implements borInteface{
+public class borrowUser extends user implements borInterface{
     public borrowUser(){
         super();
     }
@@ -28,7 +28,7 @@ public class borrowUser extends user implements borInteface{
      * @throws FileNotFoundException read the station file
      */
     public void borLayout(int stationId) throws FileNotFoundException {
-        stationAction sa=new stationAction();
-        sa.StationLayout(stationId,1);
+        setLayout setLayout=new setLayout();
+        setLayout.StationLayout(stationId,1);
     }
 }

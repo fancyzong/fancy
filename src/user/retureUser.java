@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
  * @author group 107
  * @version 4.0
  */
-public class retureUser extends user implements retInteface{
+public class retureUser extends user implements retInterface{
     public retureUser(){
         super();
     }
@@ -29,7 +29,7 @@ public class retureUser extends user implements retInteface{
      * @throws FileNotFoundException read the station file
      */
     public void retLayout(int stationId) throws FileNotFoundException {
-        stationAction sa=new stationAction();
-        sa.StationLayout(stationId,0);
+        setLayout setLayout=new setLayout();
+        setLayout.StationLayout(stationId,0);
     }
 }

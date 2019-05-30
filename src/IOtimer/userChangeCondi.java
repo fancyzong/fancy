@@ -15,6 +15,7 @@ public class userChangeCondi {
     /**
      * This method is called after the user picked up(borrow) a scooter successfully in order to change the user's situation that indicates the user owns a scooter now
      * @param userId A search condition to find the specific line of the user's information in the file
+     * @param condition Determine which retrieval method is based on the value of the condition.
      * @throws IOException In order to change a specific user's information in the file
      */
     public void UserCondi(String userId,int condition) throws IOException {

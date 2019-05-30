@@ -11,6 +11,7 @@ import java.io.IOException;
  */
 
 public class user {
+    UI changer=integationTest.test;
     private String email;
     private String name;
     private String ID;
@@ -53,5 +54,19 @@ public class user {
     public String payIt(String id) throws IOException {
         userDetector D=new userDetector();
         return D.Scan(id,0);
+    }
+
+    /**
+     * Perform user's card swipe behavior.
+     */
+    public void scanCard(){
+        changer.stationSelect();
+    }
+
+    /**
+     * Perform user's registration behavior.
+     */
+    public void register(){
+        changer.register();
     }
 }

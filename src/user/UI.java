@@ -1,12 +1,14 @@
 package user;
 
-import staff.SUI;
+import manager.SUI;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
-import staff.TUI_monitor;
-import staff.TUI_pay_fine;
-import staff.TUI_register;
+import java.io.IOException;
+
+import manager.TUI_monitor;
+import manager.TUI_pay_fine;
+import manager.TUI_register;
 /**
  * This class is used to show the GUI
  * @author group 107
@@ -34,7 +36,7 @@ public class UI extends JFrame {
         repaint();
     }
     public void monitor(){
-        setSize(200,400);
+        setSize(400,300);
         this.setTitle("Monitor");
         this.remove(panel);
         panel=new TUI_monitor();
@@ -87,7 +89,8 @@ public class UI extends JFrame {
         this.validate();
         repaint();
     }
-    public void stationBor(int stationId,String userid,boolean cond) {
+    public void stationBor(int stationId,String userid,boolean cond) throws IOException {
+        setLocation(300,300);
         setSize(800, 300);
         this.setTitle("station");
         this.remove(panel);
