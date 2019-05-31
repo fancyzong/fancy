@@ -25,7 +25,7 @@ public class UI extends JFrame {
         this.setTitle("Scooter Sharing System");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        setSize(200,300);
+        setSize(400,300);
         panel=new FUI();
         this.add(panel);
     }
@@ -73,7 +73,7 @@ public class UI extends JFrame {
      * Remove the previous interface and enter the beginning interface.
      */
     public void FUI(){
-        setSize(200,300);
+        setSize(400,300);
         this.setTitle("Scooter Sharing System");
         this.remove(panel);
         panel=new FUI();
