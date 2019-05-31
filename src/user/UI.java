@@ -35,7 +35,7 @@ public class UI extends JFrame {
      */
     public void staff(){
         setSize(350,300);
-        this.setTitle("Staff");
+        this.setTitle("Manager");
         this.remove(panel);
         panel=new SUI();
         this.add(panel);

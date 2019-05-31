@@ -131,14 +131,16 @@ public class stationChangeCondi {
             br = new BufferedReader(fr);
             String str;
             while ((str = br.readLine()) != null) {
-                String[] strarray = str.split(" ");
-                for (int i = 0; i < al.size(); i++) {
-                    if (al.get(i).equals(strarray[1])) {
-                        if (!str.equals("")) {
-                            FileWriter fw = new FileWriter(al.get(i + 1) + ".txt", true);
-                            fw.write(str + "\n");
-                            fw.close();
-                            break;
+                if (!str.equals("")) {
+                    String[] strarray = str.split(" ");
+                    for (int i = 0; i < al.size(); i++) {
+                        if (al.get(i).equals(strarray[1])) {
+                            if (!str.equals("")) {
+                                FileWriter fw = new FileWriter(al.get(i + 1) + ".txt", true);
+                                fw.write(str + "\n");
+                                fw.close();
+                                break;
+                            }
                         }
                     }
                 }
